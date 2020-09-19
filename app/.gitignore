@@ -1,0 +1,6 @@
+/build
+*.apk
+manifest-merger-release-report.txt
+crashlytics.properties
+app.iml
+fabric.properties

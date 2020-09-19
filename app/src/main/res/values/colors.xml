@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#fff</color>
+    <color name="night_mode_bg">#333333</color>
+    <color name="night_mode_text">#cccccc</color>
+
+    <color name="colorPrimary">#666666</color>
+    <color name="colorPrimaryDark">#595959</color>
+    <color name="colorAccent">#3399ff</color>
+    <color name="pulse">#167be0</color>
+    <color name="statusBarColor">@android:color/transparent</color>
+
+    <color name="black70">#e9000000</color>
+
+    <color name="red">#d23929</color>
+    <color name="blue">#346399</color>
+</resources>

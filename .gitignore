@@ -1,0 +1,13 @@
+.gradle
+.idea
+.DS_Store
+/build
+Sozdik2.0.iml
+sozdik-2.0.iml
+**.iml
+/app/release
+**.jks
+
+# Local configuration file (sdk path, etc)
+credentials.properties
+local.properties

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="KazCharsView">
+        <attr name="kcv_allCaps" format="boolean" />
+        <attr name="kcv_fontSize" format="dimension" />
+        <attr name="kcv_textColor" format="color" />
+        <attr name="kcv_type" format="enum">
+            <enum name="cyrillic" value="0" />
+            <enum name="latin" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TitledTextView">
+        <attr name="title" format="string" />
+        <attr name="description" format="string" />
+    </declare-styleable>
+</resources>

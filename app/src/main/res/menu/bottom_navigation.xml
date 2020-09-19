@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_dictionary"
+        android:icon="@drawable/ic_arrows_swap"
+        android:title="@string/tab_dictionary" />
+    <item
+        android:id="@+id/nav_history"
+        android:icon="@drawable/ic_history"
+        android:title="@string/tab_history" />
+    <item
+        android:id="@+id/nav_favorites"
+        android:icon="@drawable/selector_star_tab"
+        android:title="@string/tab_favorites" />
+    <item
+        android:id="@+id/nav_translate"
+        android:icon="@drawable/ic_translate"
+        android:title="@string/tab_translation" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/selector_profile_tab"
+        android:title="@string/tab_profile" />
+</menu>

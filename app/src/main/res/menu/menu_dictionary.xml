@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_play_sound"
+        android:icon="@drawable/ic_volume_up_white_24dp"
+        android:orderInCategory="100"
+        android:title="@string/play_phrase"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_favorite"
+        android:icon="@drawable/selector_star_tab"
+        android:orderInCategory="100"
+        android:title="@string/add_to_favorites"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_copy"
+        android:icon="@drawable/ic_copy"
+        android:orderInCategory="100"
+        android:title="@string/translate_copy_to_clipboard"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_share"
+        android:icon="@drawable/ic_share_white_24dp"
+        android:orderInCategory="100"
+        android:title="@string/share_translation"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_search"
+        android:actionLayout="@layout/search_view"
+        android:icon="@drawable/ic_search_white"
+        android:title="@string/search_hint"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="collapseActionView|ifRoom" />
+</menu>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" translatable="false">sozdik.kz</string>
+
+    <string name="tab_dictionary">Dictionary</string>
+    <string name="tab_translation">Translator</string>
+    <string name="tab_history">History</string>
+    <string name="tab_favorites">Favorites</string>
+    <string name="tab_profile">Profile</string>
+    <string name="tab_login">Sign in</string>
+    <string name="tab_register">Sign up</string>
+    <string name="tab_logout">Logout</string>
+
+    <string name="preferences">Preferences</string>
+
+    <string name="dialog_ok" translatable="false">OK</string>
+
+    <string name="search_hint">Enter phrase…</string>
+
+    <!-- Menu-->
+    <string name="clear_all">Clear history</string>
+    <string name="remove_selected_items">Remove selected items</string>
+    <string name="clear_favorites">Clear favorites</string>
+    <string name="play_phrase">Play</string>
+    <string name="share">Share</string>
+    <string name="share_summary">Share the app link in another application</string>
+    <string name="share_translation">Share translation</string>
+    <string name="add_to_favorites">Аdd to favorites</string>
+    <string name="select_several_items">Select several items</string>
+
+    <!-- PreferencesFragment-->
+    <string name="general_settings">General settings</string>
+    <string name="copyright" formatted="false">Version %s\n©2000 – %d \"sozdik.kz\" Ltd.</string>
+    <string name="show_kaz_keys">Kazakh letters</string>
+    <string name="clear_input_after_translation_title">Clear input</string>
+    <string name="clear_input_after_translation_summary">Clear input after translation</string>
+    <string name="haptic_feedback">Haptic feedback</string>
+    <string name="search">Search</string>
+
+    <string name="pref_show_kaz_keys" translatable="false">pref_show_kaz_keys</string>
+    <string name="pref_turn_vibrator" translatable="false">pref_turn_vibrator</string>
+    <string name="pref_key_clear_input_after_success_translation" translatable="false">pref_key_clear_input_after_success_translation</string>
+    <string name="pref_key_night_mode_enabled" translatable="false">pref_key_night_mode_enabled</string>
+    <string name="pref_key_font_size" translatable="false">pref_key_font_size</string>
+    <string name="pref_key_language" translatable="false">pref_key_language</string>
+    <string name="pref_key_quick_translate" translatable="false">pref_key_quick_translate</string>
+    <string name="pref_key_kaz_roman" translatable="false">pref_key_kaz_roman</string>
+    <string name="pref_key_action_back" translatable="false">pref_key_action_back</string>
+    <string name="pref_key_translation_course" translatable="false">pref_key_translation_course</string>
+
+    <string name="word_has_no_sound">For this word is not scoring</string>
+    <string name="disable_ad">Disable ad</string>
+    <string name="item_already_owned">Item already owned</string>
+    <string name="billing_service_unavailable_try_later">Google billing service is unavailable now. Try later</string>
+    <string name="rate_app">Rate on the Google Play</string>
+    <string name="rate_app_summary">Please help us make the app better. Give us your feedback</string>
+    <string name="about">About</string>
+    <string name="no_favorites_yet">No favorites yet</string>
+    <string name="start_search_now">To search, click on the</string>
+
+    <string name="write_to_developers">Write to developers</string>
+    <string name="communicate">Communicate</string>
+    <string name="add_word">Add word</string>
+    <string name="share_text">I use a mobile dictionary sozdik.kz for Android - http://szd.kz/android</string>
+    <string name="unable_to_translate_phrase_check_internet_connection">Unable to translate phrase. Check internet connection</string>
+    <string name="close">Close</string>
+    <string name="settings_license_number">License number</string>
+    <string name="copy_text">Copy</string>
+    <string name="license_number_copied_to_buffer">License number copied to buffer</string>
+    <string name="phrase_contains_invalid_characters">Phrase contains invalid characters</string>
+
+    <string name="error_no_internet_connection">No internet connection</string>
+    <string name="error_default_exception">An error has occurred. Try later</string>
+    <string name="error_http_401">Authorization required</string>
+
+    <string name="dictionary_wrong_phrase">Wrong phrase</string>
+    <string name="dictionary_suggestions_not_found">No suggestions</string>
+
+    <string name="translation_not_found_suggestions" formatted="false"><Data><![CDATA[ <?xml version="1.0" encoding="UTF-8" ?> %s <html><body><span>The word \"%s\" is not found. In the dictionary are similar in spelling words:</span> %s</body></html> ]]> </Data></string>
+    <string name="translation_not_found" formatted="false"><Data><![CDATA[ <?xml version="1.0" encoding="UTF-8" ?> %s <html><body><span>The word \"%s\" is not found.</span></body></html> ]]> </Data></string>
+    <string name="translation_found" formatted="false" translatable="false"><Data><![CDATA[ <?xml version="1.0" encoding="UTF-8" ?> %s <html><body><p><span class="acute"><b>%s</b><span></p>%s</body></html> ]]> </Data></string>
+    <string name="translation_mfa" formatted="false"><![CDATA[<abbr>IPA:</abbr> <span>%s</span>]]></string>
+
+    <string name="settings_roman">Roman letters</string>
+    <string name="settings_roman_hint">Display kazakh words with Roman letters</string>
+    <string name="settings_quick_translation">Quick translation</string>
+    <string name="settings_quick_translation_toast">Now copy text in a different app</string>
+    <string name="settings_quick_translation_hint">Show the button while copying the text from other applications</string>
+
+    <string name="night_mode">Night mode</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="removing">Removing</string>
+    <string name="purchase_disabling_ads_done">Purchase for disabling ads done</string>
+    <string name="press_back_again_to_exit">Please click BACK again to exit</string>
+
+    <string name="settings_app_language">Interface language</string>
+    <string-array name="settings_app_languages_entries" translatable="false">
+        <item>Qazaqsha</item>
+        <item>Қазақша</item>
+        <item>Русский</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="settings_app_languages_values" translatable="false">
+        <item>ky</item>
+        <item>kk</item>
+        <item>ru</item>
+        <item>en</item>
+    </string-array>
+
+    <string name="settings_back_action">Action of the Back button</string>
+    <string-array name="settings_back_action_entries">
+        <item>Return to the previous translation</item>
+        <item>Exit from the application</item>
+    </string-array>
+    <string-array name="settings_back_action_values" translatable="false">
+        <item>back_action_prev_translation</item>
+        <item>back_action_exit</item>
+    </string-array>
+
+    <string name="font_size">Font size</string>
+    <string-array name="font_size_entries">
+        <item>Small</item>
+        <item>Average</item>
+        <item>Large</item>
+    </string-array>
+    <string-array name="font_size_values" translatable="false">
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+    </string-array>
+    <string name="nav_menu_other_developer_apps">Other Apps Developer</string>
+
+    <string name="feedback_your_name">Your name</string>
+    <string name="feedback_your_email">Your email</string>
+    <string name="feedback_subject">Message subject</string>
+    <string name="feedback_text">Message body</string>
+    <string name="feedback_send">Send</string>
+    <string name="feedback_error_wrong_email">Enter the correct e-mail</string>
+    <string name="feedback_error_empty_name">Enter your name</string>
+    <string name="feedback_error_empty_text">Enter message body</string>
+    <string name="feedback_message_sent">Message was sent</string>
+    <string name="feedback_message_not_sent">Message was not sent. Try again</string>
+    <string name="feedback_sending">Sending…</string>
+
+    <string name="rate_question">How would you rate the app?</string>
+    <string name="rate_positive">Awesome!</string>
+    <string name="rate_negative">Bad</string>
+
+    <string name="tab_from_kaz">From Kazakh</string>
+    <string name="tab_from_rus">From Russian</string>
+
+    <string name="register_title">Sign up</string>
+    <string name="register_continue">Sign up</string>
+    <string name="register_login">Login</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Password</string>
+    <string name="register_first_name">Name</string>
+    <string name="register_last_name">Surname</string>
+    <string name="register_error_wrong_first_name">Input correct name</string>
+    <string name="register_error_wrong_last_name">Input correct surname</string>
+    <string name="register_error_wrong_email">Input valid email</string>
+    <string name="register_error_wrong_password">The password must contain at least 6 characters</string>
+    <string name="register_menu_info">Information</string>
+    <string name="register_dialog_info_title">Information</string>
+    <string name="register_dialog_info_message">• After registration, a letter with a confirmation code will be sent to your e–mail address.\n\n • Registration is allowed only from e–mail addresses: @bk.ru, @gmail.com, @inbox.ru, @list.ru, @mail.ru, @outlook.com, @rambler.ru, @yahoo.com, @yandex.ru\n\n • As a safe and easy to remember password, you can use a password phrase of 5–7 words.</string>
+    <string name="register_privacy_policy">I am acquainted by privacy policy</string>
+    <string name="register_privacy_policy_link_text">privacy policy</string>
+    <string name="register_privacy_policy_url">https://sozdik.kz/en/privacy_policy/?header=0&amp;footer=0</string>
+    <string name="register_terms_of_use">I agree with rules of use</string>
+    <string name="register_terms_of_use_link_text">rules of use</string>
+    <string name="register_terms_of_use_url">https://sozdik.kz/en/rules/?header=0&amp;footer=0</string>
+    <string name="register_already_registered">Have an account already?</string>
+    <string name="register_error_email_already_registered">Email address was registered for another account</string>
+    <string name="register_error_password_and_login_coincide">Password should not coincide with e-mail address</string>
+    <string name="register_error_email_unavailable">Email address of an unresolved e-mail system</string>
+
+    <string name="login_title">Sign in</string>
+    <string name="login_enter">Login</string>
+    <string name="login_google" translatable="false">Google</string>
+    <string name="login_facebook" translatable="false">Facebook</string>
+    <string name="login_or">or</string>
+    <string name="login_error_wrong_email_or_password">Incorrect login or password</string>
+    <string name="login_error_wrong_email">Input valid email</string>
+    <string name="login_error_empty_password">Input the password</string>
+
+    <string name="code_confirm_title">Confirmation of registration</string>
+    <string name="code_confirm_description">Enter the code sent on your email</string>
+    <string name="code_confirm_hint_code">Code</string>
+    <string name="code_confirm_continue">Continue</string>
+    <string name="code_confirm_error_empty_code">Enter the code sent on your email</string>
+    <string name="code_confirm_error_wrong_code">The code is wrong</string>
+    <string name="code_confirm_error_email_not_registered">E-mail not registered</string>
+
+    <string name="history_loading">Loading…</string>
+    <string name="history_empty">History is empty</string>
+    <string name="history_cleared">History of translations cleared</string>
+    <string name="history_question_removing">Do you really want to clear the history of translations?</string>
+    <string name="history_question_word_removing">Are you sure you want to delete the selected word from the translation history?</string>
+
+    <string name="favorites_is_empty">No favorite words for removal</string>
+    <string name="favorites_cleared">Favorite translations cleared</string>
+    <string name="favorites_loading">Loading…</string>
+    <string name="favorites_question_removing">Do you really want to clear all the favorites words?</string>
+    <string name="favorites_question_word_removing">Are you sure you want to delete the selected word from the favorites?</string>
+
+    <string name="translate_copy_to_clipboard">Copy to clipboard</string>
+    <string name="translate_text_copied_to_buffer">Text copied to clipboard</string>
+    <string name="translate_unable_to_copy_text_to_buffer">Unable to copy text to clipboard</string>
+    <string name="translate_yandex_link"><Data><![CDATA[ Translated by <a href="http://translate.yandex.ru/">«Yandex.Translate»</a>]]> </Data></string>
+    <string name="translate_course_ru_kk" translatable="false">RU ⇄ KK</string>
+    <string name="translate_course_kk_ru" translatable="false">KK ⇄ RU</string>
+    <string name="translate_error_empty_text">Enter the text</string>
+
+    <string name="logout_dialog_title">Logout</string>
+    <string name="logout_dialog_question">Do you really want to logout?</string>
+
+    <string name="system_context_menu_item">Translate in sozdik.kz</string>
+
+    <string name="purchase_cancelled">Purchase is cancelled</string>
+    <string name="unable_to_disable_advertisement">Unable to disable an advertisement. Please, write to developer</string>
+
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="sign_up_description">Sign up to sync the history and the favorites phrases</string>
+    <string name="sign_in_description">Sign in and sync the history and the favorites phrases</string>
+</resources>

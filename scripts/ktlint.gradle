@@ -1,0 +1,21 @@
+// https://github.com/shyiko/ktlint
+configurations {
+    ktlint
+}
+
+dependencies {
+    ktlint "com.pinterest:ktlint:0.37.2"
+}
+
+task ktlint(type: JavaExec) {
+    main = "com.pinterest.ktlint.Main"
+    classpath = configurations.ktlint
+    args "$rootDir/**/*.kt"
+
+    if (project.hasProperty("autoCorrect") && project.property("autoCorrect") == "0") {
+        println("Ktlint auto correction is disabled")
+    } else {
+        println("Ktlint auto correction is enabled")
+        args "-F"
+    }
+}

@@ -1,0 +1,21 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        release {
+            file("../signing.properties").with { propFile ->
+                if (propFile.canRead()) {
+                    def properties = new Properties()
+                    properties.load(new FileInputStream(propFile))
+
+                    storeFile file(properties['keystorePath'])
+                    storePassword properties['keystorePassword']
+                    keyAlias properties['keyAlias']
+                    keyPassword properties['keyPassword']
+                } else {
+                    println 'Unable to read signing.properties, using defaults'
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tab_dictionary">Словарь</string>
+    <string name="tab_translation">Переводчик</string>
+    <string name="tab_history">История</string>
+    <string name="tab_favorites">Избранное</string>
+    <string name="tab_profile">Профиль</string>
+    <string name="tab_logout">Выйти</string>
+    <string name="tab_login">Войти</string>
+    <string name="tab_register">Зарегистрироваться</string>
+
+    <!-- PreferencesFragment-->
+    <string name="general_settings">Общие настройки</string>
+    <string name="copyright" formatted="false">Версия %s\n© 2000 – %d ТОО \"sozdik.kz\"</string>
+    <string name="show_kaz_keys">Казахские буквы</string>
+    <string name="haptic_feedback">Виброотклик</string>
+    <string name="search">Поиск</string>
+    <string name="share">Рассказать друзьям</string>
+    <string name="share_summary">Поделиться ссылкой на скачивание через другое приложение</string>
+    <string name="add_to_favorites">Добавить в избранное</string>
+    <string name="clear_all">Удалить историю</string>
+    <string name="clear_favorites">Удалить избранное</string>
+    <string name="word_has_no_sound">Для этого слова нет озвучивания</string>
+    <string name="rate_app">Оценить приложение</string>
+    <string name="rate_app_summary">Помогите нам сделать приложение лучше - оставьте свой отзыв</string>
+    <string name="about">О приложении</string>
+    <string name="no_favorites_yet">Избранных слов пока нет</string>
+    <string name="select_several_items">Выберите слова для удаления</string>
+    <string name="play_phrase">Воспроизвести</string>
+    <string name="start_search_now">Для поиска нажмите на </string>
+    <string name="search_hint">Введите слово…</string>
+    <string name="write_to_developers">Написать разработчикам</string>
+    <string name="communicate">Обратная связь</string>
+    <string name="add_word">Добавить слово</string>
+    <string name="share_text">Я пользуюсь мобильным словарём sozdik.kz для Android - http://szd.kz/android</string>
+    <string name="unable_to_translate_phrase_check_internet_connection">Проверьте интернет-соединение</string>
+    <string name="close">Закрыть</string>
+    <string name="copy_text">Скопировать</string>
+    <string name="license_number_copied_to_buffer">Номер лицензии скопирован в буфер обмена</string>
+    <string name="phrase_contains_invalid_characters">Фраза содержит недопустимые символы</string>
+    <string name="share_translation">Поделиться переводом</string>
+    <string name="clear_input_after_translation_title">Очищать поле ввода</string>
+    <string name="translation_not_found_suggestions" formatted="false"><Data><![CDATA[ <?xml version="1.0" encoding="UTF-8" ?> %s <html><body><span>Слово \"%s\"  не  найдено. В  словаре  имеются  схожие  по написанию слова:</span> %s</body></html> ]]> </Data></string>
+    <string name="translation_not_found" formatted="false"><Data><![CDATA[ <?xml version="1.0" encoding="UTF-8" ?> %s <html><body><span>Слово \"%s\"  не  найдено.</span></body></html> ]]> </Data></string>
+    <string name="night_mode">Ночной режим</string>
+    <string name="yes">Да</string>
+    <string name="cancel">Отмена</string>
+    <string name="removing">Удаление</string>
+    <string name="remove_selected_items">Удалить выбранные слова</string>
+    <string name="disable_ad">Отключить рекламу</string>
+    <string name="item_already_owned">Покупка уже совершена</string>
+    <string name="billing_service_unavailable_try_later">Платежный сервис Google в данный момент недоступен. Попробуйте позже</string>
+    <string name="purchase_disabling_ads_done">Поздравляем! Реклама успешно отключена</string>
+
+    <string name="error_no_internet_connection">Проверьте интернет-соединение</string>
+    <string name="error_default_exception">Произошла ошибка. Попробуйте позже</string>
+    <string name="error_http_401">Требуется авторизация</string>
+
+    <string name="dictionary_wrong_phrase">Некорректная фраза</string>
+    <string name="dictionary_suggestions_not_found">Подсказки не найдены</string>
+
+    <string name="nav_menu_other_developer_apps">Другие приложения разработчика</string>
+
+    <string name="settings_license_number">Номер лицензии</string>
+
+    <string name="settings_app_language">Язык интерфейса</string>
+
+    <string name="settings_back_action">Действие кнопки Back</string>
+    <string-array name="settings_back_action_entries">
+        <item>Вернуться к предыдущему переводу</item>
+        <item>Выход из приложения</item>
+    </string-array>
+
+    <string name="font_size">Размер шрифта</string>
+    <string-array name="font_size_entries">
+        <item>Мелкий</item>
+        <item>Средний</item>
+        <item>Крупный</item>
+    </string-array>
+    <string name="press_back_again_to_exit">Нажмите еще раз для выхода</string>
+    <string name="clear_input_after_translation_summary">Очищать поле ввода после перевода</string>
+
+    <string name="feedback_your_name">Ваше имя</string>
+    <string name="feedback_your_email">Ваш email</string>
+    <string name="feedback_subject">Тема сообщения</string>
+    <string name="feedback_text">Текст сообщения</string>
+    <string name="feedback_send">Отправить</string>
+    <string name="feedback_error_wrong_email">Введите правильный email</string>
+    <string name="feedback_error_empty_name">Введите ваше имя</string>
+    <string name="feedback_error_empty_text">Введите текст сообщения</string>
+    <string name="feedback_message_sent">Сообщение отправлено</string>
+    <string name="feedback_message_not_sent">Сообщение не отправлено. Попробуйте еще раз</string>
+    <string name="feedback_sending">Отправка…</string>
+
+    <string name="rate_question">Как вы оцениваете приложение?</string>
+    <string name="rate_positive">Очень нравится!</string>
+    <string name="rate_negative">Не нравится</string>
+
+    <string name="tab_from_kaz">С казахского</string>
+    <string name="tab_from_rus">С русского</string>
+
+    <string name="translation_mfa" formatted="false"><![CDATA[<abbr>МФА:</abbr> <span>%s</span>]]></string>
+
+    <string name="settings_roman">Латинский алфавит</string>
+    <string name="settings_roman_hint">Отображать казахские слова латинскими буквами</string>
+    <string name="settings_quick_translation">Быстрый перевод</string>
+    <string name="settings_quick_translation_toast">Теперь скопируйте текст в другом приложении</string>
+    <string name="settings_quick_translation_hint">Показывать кнопку при копировании текста в других приложениях</string>
+
+    <string name="register_title">Регистрация</string>
+    <string name="register_continue">Зарегистрироваться</string>
+    <string name="register_login">Войти</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Пароль</string>
+    <string name="register_first_name">Имя</string>
+    <string name="register_last_name">Фамилия</string>
+    <string name="register_error_wrong_first_name">Введено некорректное имя</string>
+    <string name="register_error_wrong_last_name">Введена некорректная фамилия</string>
+    <string name="register_error_wrong_email">Введите правильный email</string>
+    <string name="register_error_wrong_password">Пароль должен содержать минимум 6 символов</string>
+    <string name="register_menu_info">Информация</string>
+    <string name="register_dialog_info_title">Информация</string>
+    <string name="register_dialog_info_message">• Регистрация разрешена только с email адресов: @bk.ru, @gmail.com, @inbox.ru, @list.ru, @mail.ru, @outlook.com, @rambler.ru, @yahoo.com, @yandex.ru.\n\n• После регистрации на Ваш email адрес будет отправлено письмо с кодом подтверждения.\n\n• В качестве безопасного и легко запоминающегося пароля можно использовать парольную фразу из 5–7 слов.</string>
+    <string name="register_privacy_policy">Я ознакомлен(на) политикой конфиденциальности</string>
+    <string name="register_privacy_policy_link_text">политикой конфиденциальности</string>
+    <string name="register_privacy_policy_url">https://sozdik.kz/ru/privacy_policy/?header=0&amp;footer=0</string>
+    <string name="register_terms_of_use">Я согласен(на) с правилами использования</string>
+    <string name="register_terms_of_use_link_text">правилами использования</string>
+    <string name="register_terms_of_use_url">https://sozdik.kz/ru/rules/?header=0&amp;footer=0</string>
+    <string name="register_already_registered">Уже зарегистрированы?</string>
+    <string name="register_error_email_already_registered">Введённый email уже зарегистрирован</string>
+    <string name="register_error_password_and_login_coincide">Email и пароль не должны совпадать</string>
+    <string name="register_error_email_unavailable">Email адрес неразрешенной почтовой системы</string>
+
+    <string name="login_title">Вход</string>
+    <string name="login_enter">Войти</string>
+    <string name="login_error_wrong_email_or_password">Неправильный логин или пароль</string>
+    <string name="login_error_wrong_email">Введите правильный email</string>
+    <string name="login_error_empty_password">Введите пароль</string>
+    <string name="login_or">или</string>
+
+    <string name="code_confirm_title">Подтверждение регистрации</string>
+    <string name="code_confirm_description">Введите код, отправленный на вашу почту</string>
+    <string name="code_confirm_hint_code">Код</string>
+    <string name="code_confirm_continue">Продолжить</string>
+    <string name="code_confirm_error_empty_code">Введите код из письма</string>
+    <string name="code_confirm_error_wrong_code">Введён неверный код</string>
+    <string name="code_confirm_error_email_not_registered">Email не зарегистрирован</string>
+
+    <string name="history_loading">Загрузка…</string>
+    <string name="history_empty">История переводов пуста</string>
+    <string name="history_cleared">История переводов очищена</string>
+    <string name="history_question_removing">Вы действительно хотите очистить историю переводов?</string>
+    <string name="history_question_word_removing">Вы действительно хотите удалить выбранное слово из истории переводов?</string>
+
+    <string name="favorites_is_empty">Нет избранных слов для удаления</string>
+    <string name="favorites_cleared">Избранные переводы очищены</string>
+    <string name="favorites_loading">Загрузка…</string>
+    <string name="favorites_question_removing">Вы действительно хотите очистить все избранные слова?</string>
+    <string name="favorites_question_word_removing">Вы действительно хотите удалить выбранное слово из избранного?</string>
+
+    <string name="translate_copy_to_clipboard">Копировать в буфер обмена</string>
+    <string name="translate_text_copied_to_buffer">Текст скопирован в буфер обмена</string>
+    <string name="translate_unable_to_copy_text_to_buffer">Не удалось скопировать текст в буфер обмена</string>
+    <string name="translate_yandex_link"><Data><![CDATA[ Переведено сервисом <a href="http://translate.yandex.ru/">«Яндекс.Переводчик»</a>]]> </Data></string>
+    <string name="translate_error_empty_text">Введите текст</string>
+
+    <string name="logout_dialog_title">Выйти</string>
+    <string name="logout_dialog_question">Вы действительно хотите выйти?</string>
+
+    <string name="system_context_menu_item">Перевести в sozdik.kz</string>
+
+    <string name="purchase_cancelled">Покупка отменена</string>
+    <string name="unable_to_disable_advertisement">Не удалось отключить рекламу, свяжитесь с разработчиком</string>
+    <string name="preferences">Настройки</string>
+
+    <string name="something_went_wrong">Что-то пошло не так</string>
+    <string name="sign_up_description">Создайте аккаунт, чтобы синхронизировать переводы между несколькими устройствами</string>
+    <string name="sign_in_description">Войдите в свой аккаунт и синхронизируйте историю переводов и избранные слова</string>
+</resources>

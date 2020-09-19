@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kz.sozdik">
+
+    <!-- Do not remove. Needs to enable/disable WIFI in UI tests -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+</manifest>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tab_dictionary">Sózdik</string>
+    <string name="tab_translation">Aýdarmashy</string>
+    <string name="tab_history">Tarıh</string>
+    <string name="tab_favorites">Tańdamaly</string>
+    <string name="tab_profile">Profile</string>
+    <string name="tab_logout">Shyǵý</string>
+    <string name="tab_login">Kirý</string>
+    <string name="tab_register">Tirkeý</string>
+
+    <!-- PreferencesFragment-->
+    <string name="general_settings">Jalpy baptaýlar</string>
+    <string name="copyright" formatted="false">Nusqasy %s\n© 2000 – %d \"sozdik.kz\" JShS</string>
+    <string name="show_kaz_keys">Qazaq áripteri</string>
+    <string name="haptic_feedback">Vıbrobelgi</string>
+    <string name="search">Izdeý</string>
+    <string name="share">Dostaryma aıtý</string>
+    <string name="add_to_favorites">Tańdamalyǵa qosý</string>
+    <string name="clear_all">Tarıhty joıý</string>
+    <string name="clear_favorites">Tańdamalyny joıý</string>
+    <string name="word_has_no_sound">Bul sózdiń dybystalýy joq</string>
+    <string name="rate_app">Google Play-da baǵalaý</string>
+    <string name="rate_app_summary"> Óz pikirińizdi qaldyryp, bizge qosymshany jaqsartýǵa kómektesińiz</string>
+    <string name="about">Qoldanba týraly</string>
+    <string name="no_favorites_yet">Tańdamaly sózder ázirshe joq</string>
+    <string name="select_several_items">Joıylatyn sózdi tańdańyz</string>
+    <string name="play_phrase">Dybystaý</string>
+    <string name="start_search_now">Izdeý úshin … basyńyz</string>
+    <string name="search_hint">Sózdi engizińiz…</string>
+    <string name="write_to_developers">Qurastyrýshylarǵa jazý</string>
+    <string name="communicate">Keri baılanys</string>
+    <string name="add_word">Sóz qosý</string>
+    <string name="share_text">Men Android-qa arnalǵan sozdik.kz mobıldi sózdigin qoldanamyn - http://szd.kz/android</string>
+    <string name="unable_to_translate_phrase_check_internet_connection">Qatelik týyndady, keıinirek talpynys jasańyz. Internet-baılanysty tekserińiz</string>
+    <string name="close">Jabý</string>
+    <string name="settings_license_number">Lısenzıa nómiri</string>
+    <string name="copy_text">Kóshirip alý</string>
+    <string name="license_number_copied_to_buffer">Lısenzıa nómiri almasý býferine kóshirildi</string>
+    <string name="phrase_contains_invalid_characters">Frazada ruqsat etilmegen sımvoldar bar</string>
+    <string name="clear_input_after_translation_title">Aýdarǵannan keıin engizý jolyn tazartý</string>
+    <string name="share_translation">Jiberý</string>
+    <string name="translation_not_found" formatted="false"><Data><![CDATA[ <?xml version="1.0" encoding="UTF-8" ?> %s <html><body><span>\"%s\" sózi tabylmady.</span></body></html> ]]> </Data></string>
+    <string name="translation_not_found_suggestions" formatted="false"><Data><![CDATA[ <?xml version="1.0" encoding="UTF-8" ?> %s <html><body><span>\"%s\" sózi tabylmady. Sózdikte jazylýy osyǵan uqsas sózder bar:</span> %s</body></html> ]]> </Data></string>
+    <string name="night_mode">Túngi rejım</string>
+    <string name="yes">Iá</string>
+    <string name="cancel">Joıý</string>
+    <string name="remove_selected_items">Tańdalǵan sózderdi joıý</string>
+    <string name="removing">Joıý</string>
+    <string name="disable_ad">Jarnamadan ajyratylý</string>
+    <string name="item_already_owned">Покупка уже совершена</string>
+    <string name="billing_service_unavailable_try_later">Платежный сервис Google в данный момент недоступен. Попробуйте позже</string>
+    <string name="purchase_disabling_ads_done">Quttyqtaımyz! Jarnamadan ajyratyldyńyz</string>
+    <string name="font_size">Qarip ólshemi</string>
+
+    <string name="error_no_internet_connection">Internet-baılanys joq</string>
+    <string name="error_default_exception">Proızoshla oshıbka. Poprobýıte pozje</string>
+    <string name="error_http_401">Trebýetsá avtorızasıa</string>
+
+    <string name="dictionary_wrong_phrase">Qate sóz tirkesi</string>
+    <string name="dictionary_suggestions_not_found">Emeýrinder tabylmady</string>
+
+    <string name="settings_app_language">Interfeıs tili</string>
+
+    <string-array name="font_size_entries">
+        <item>Usaq</item>
+        <item>Orta</item>
+        <item>Iri</item>
+    </string-array>
+    <string name="press_back_again_to_exit">Shyǵý úshin taǵy bir ret basyńyz</string>
+    <string name="clear_input_after_translation_summary">Engizý jolyn tazartý</string>
+    <string name="nav_menu_other_developer_apps">Qurastyrýshynyń basqa qoldanbalary</string>
+
+    <string name="feedback_your_name">Sizdiń atyńyz</string>
+    <string name="feedback_your_email">Sizdiń email</string>
+    <string name="feedback_subject">Habarlama taqyryby</string>
+    <string name="feedback_text">Habarlama mátini</string>
+    <string name="feedback_send">Jiberý</string>
+    <string name="feedback_error_wrong_email">Durys email engizińiz</string>
+    <string name="feedback_error_empty_name">Atyńyzdy engizińiz</string>
+    <string name="feedback_error_empty_text">Habarlama mátinin engizińiz</string>
+    <string name="feedback_message_sent">Habarlama jiberildi</string>
+    <string name="feedback_message_not_sent">Habarlama jiberilmedi. Taǵy da kórińiz</string>
+    <string name="feedback_sending">Sending…</string>
+    <string name="rate_question">Qoldanba sizge unady ma?</string>
+    <string name="rate_positive">Óte unady!</string>
+    <string name="rate_negative">Unamady</string>
+
+    <string name="tab_from_kaz">Qazaq tilinen</string>
+    <string name="tab_from_rus">Orys tilinen</string>
+
+    <string name="translation_mfa" formatted="false"><![CDATA[<abbr>HFÁ:</abbr> <span>%s</span>]]></string>
+
+    <string name="settings_roman">Latyn álipbıi</string>
+    <string name="settings_roman_hint">Qazaqsha sózderdi latyn áripterimen keskindeý</string>
+    <string name="settings_quick_translation">Jyldam aýdarma</string>
+    <string name="settings_quick_translation_toast">Endi mátindi basqa qoldanbada kóshirińiz</string>
+    <string name="settings_quick_translation_hint">Mátindi basqa qoldanbalarda kóshirý barysynda batyrmany kórsetý</string>
+
+    <string name="register_title">Tirkeý</string>
+    <string name="register_continue">Tirkeý</string>
+    <string name="register_login">Kirý</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Qupıasóz</string>
+    <string name="register_first_name">Aty</string>
+    <string name="register_last_name">Tegi</string>
+    <string name="register_error_wrong_first_name">Esimińizdi engizińiz</string>
+    <string name="register_error_wrong_last_name">Tegińizdi engizińiz</string>
+    <string name="register_error_wrong_email">Durys email engizińiz</string>
+    <string name="register_error_wrong_password">Qupıasóz keminde 6 tańbadan turý kerek</string>
+    <string name="register_menu_info">Aqparat</string>
+    <string name="register_dialog_info_title">Aqparat</string>
+    <string name="register_dialog_info_message">• Tek myna poshtalardan tirkele alasyz: @bk.ru, @gmail.com, @inbox.ru, @list.ru, @mail.ru, @outlook.com, @rambler.ru, @yahoo.com, @yandex.ru\n\n• Tirkelgennen keıin poshtańyzǵa rastaý kody bar hat keledi.\n\n• Qaýipsiz ári este ońaı saqtalatyn qupıasóz retinde 5–7 sózden turatyn sóılem paıdalanýǵa bolady.</string>
+    <string name="register_privacy_policy">Qupıalylyq saıasatyn oqyp shyqtym</string>
+    <string name="register_privacy_policy_link_text">Qupıalylyq saıasatyn</string>
+    <string name="register_privacy_policy_url">https://sozdik.kz/kk/privacy_policy/?header=0&amp;footer=0</string>
+    <string name="register_terms_of_use">Paıdalaný erejelerimen kelisemin</string>
+    <string name="register_terms_of_use_link_text">Paıdalaný erejelerimen</string>
+    <string name="register_terms_of_use_url">https://sozdik.kz/kk/rules/?header=0&amp;footer=0</string>
+    <string name="register_already_registered">Tirkelip qoıǵansyz ba?</string>
+    <string name="register_error_email_already_registered">Bul e-mail tirkelip qoıǵan</string>
+    <string name="register_error_password_and_login_coincide">Qupıasóz email-men sáıkes kelmeýi tıis</string>
+    <string name="register_error_email_unavailable">Ruqsat etilmegen poshta qyzmetiniń email mekenjaıy</string>
+
+    <string name="login_title">Kirý</string>
+    <string name="login_enter">Kirý</string>
+    <string name="login_error_wrong_email">Durys email engizińiz</string>
+    <string name="login_error_empty_password">Qupıasózdi engizińiz</string>
+    <string name="login_error_wrong_email_or_password">Logın nemese qupıasóz qate</string>
+    <string name="login_or">nemese</string>
+
+    <string name="code_confirm_title">Tirkeýdi rastaý</string>
+    <string name="code_confirm_description">Poshtańyzǵa kelgen kodty engizińiz</string>
+    <string name="code_confirm_hint_code">Kod</string>
+    <string name="code_confirm_continue">Jalǵastyrý</string>
+    <string name="code_confirm_error_empty_code">Hattaǵy kodty engizińiz</string>
+    <string name="code_confirm_error_wrong_code">Qate kod</string>
+    <string name="code_confirm_error_email_not_registered">Bul email tirkelmegen</string>
+
+    <string name="history_empty">Aýdarmalar tarıhy bos</string>
+    <string name="history_cleared">Aýdarmalar tarıhy óshirildi</string>
+    <string name="history_question_removing">Siz aýdarmalar tarıhyn shynymen tazartqyńyz kele me?</string>
+    <string name="history_loading">Júkteý…</string>
+    <string name="history_question_word_removing">Tańdalǵan sózdi aýdarma tarıhynan óshirip tastaǵyńyz kele me?</string>
+
+    <string name="favorites_is_empty">Joıý úshin tańdamaly sózder joq</string>
+    <string name="favorites_cleared">Tańdamaly aýdarmalar óshirildi</string>
+    <string name="favorites_question_removing">Siz barlyq tańdalǵan sózderdi shynymen joıǵyńyz kele me?</string>
+    <string name="favorites_loading">Júkteý…</string>
+    <string name="favorites_question_word_removing">Tańdalǵan sózdi tańdamaly tizimnen óshirip tastaǵyńyz kele me?</string>
+
+    <string name="translate_copy_to_clipboard">Almasý býferine kóshirý</string>
+    <string name="translate_text_copied_to_buffer">Mátin almasý býferine kóshirildi</string>
+    <string name="translate_unable_to_copy_text_to_buffer">Mátin almastyrý býferine kóshirilmedi</string>
+    <string name="translate_yandex_link"><Data><![CDATA[<a href="http://translate.yandex.ru/">«Яндекс.Переводчик»</a> qyzmeti arqyly aýdarylǵan]]> </Data></string>
+    <string name="translate_error_empty_text">Mátindi engizińiz</string>
+
+    <string name="logout_dialog_title">Shyǵý</string>
+    <string name="logout_dialog_question">Rasymen shyqqyńyz kele me?</string>
+
+    <string name="settings_back_action">Back túımesiniń áreketi</string>
+    <string-array name="settings_back_action_entries">
+        <item>Aldyńǵy aýdarmaǵa oralý</item>
+        <item>Qosymshadan shyǵý</item>
+    </string-array>
+
+    <string name="system_context_menu_item">sozdik.kz-te aýdarý</string>
+
+    <string name="purchase_cancelled">Satyp alýdan bas tartyldy</string>
+    <string name="unable_to_disable_advertisement">Jarnamany óshirý múmkin bolmady, qurastyrýshymen habarlasyńyz</string>
+    <string name="preferences">Baptaýlar</string>
+</resources>

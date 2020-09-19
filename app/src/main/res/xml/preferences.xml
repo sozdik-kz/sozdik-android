@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/general_settings"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:entries="@array/settings_app_languages_entries"
+            android:entryValues="@array/settings_app_languages_values"
+            android:key="@string/pref_key_language"
+            android:summary="%s"
+            android:title="@string/settings_app_language"
+            app:iconSpaceReserved="false" />
+
+        <ListPreference
+            android:defaultValue="back_action_prev_translation"
+            android:entries="@array/settings_back_action_entries"
+            android:entryValues="@array/settings_back_action_values"
+            android:key="@string/pref_key_action_back"
+            android:summary="%s"
+            android:title="@string/settings_back_action"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="@string/pref_key_night_mode_enabled"
+            android:title="@string/night_mode"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="@string/pref_show_kaz_keys"
+            android:shouldDisableView="true"
+            android:title="@string/show_kaz_keys"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="@string/pref_turn_vibrator"
+            android:title="@string/haptic_feedback"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/tab_dictionary"
+        app:iconSpaceReserved="false">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_clear_input_after_success_translation"
+            android:summary="@string/clear_input_after_translation_summary"
+            android:title="@string/clear_input_after_translation_title"
+            app:iconSpaceReserved="false" />
+        <ListPreference
+            android:defaultValue="@string/font_size_default_value"
+            android:entries="@array/font_size_entries"
+            android:entryValues="@array/font_size_values"
+            android:key="@string/pref_key_font_size"
+            android:summary="%s"
+            android:title="@string/font_size"
+            app:iconSpaceReserved="false" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="@string/pref_key_kaz_roman"
+            android:summary="@string/settings_roman_hint"
+            android:title="@string/settings_roman"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="@string/pref_key_quick_translate"
+            android:summary="@string/settings_quick_translation_hint"
+            android:title="@string/settings_quick_translation"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

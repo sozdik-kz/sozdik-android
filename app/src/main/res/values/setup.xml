@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-8798922455311766/4632697138</string>
+
+    <string name="font_size_default_value" translatable="false">12</string>
+    <string name="settings_language_default_value" translatable="false">ru</string>
+
+    <string name="facebook_app_id" translatable="false">435130520745233</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb435130520745233</string>
+
+    <string name="google_play_key" translatable="false">"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApgBdTr23YA9ft5/Phd60GiONl21SxeOyzAAUWw0H7Zr0Ef6QRdvHuKUYvDRKXbix/OKaoTK+3tDeYfBAPWaMKhDF3sCAKp4g7R7a8rl7KdB52leunz0raacJ3zG2GlU41sbXXDNsKvKOR6cRTEnoEZ2lh1PkeU7pfl0QwFq3coyukT9svuIgSv4BajljNNNfAEnkdhCvkl0aijtDMJHJCTeaubqsOlYd9NrMfF/ErwFVhssacdTwzaRiLgPS/pbqeShj6SQTb1f8gm+1f4nJKt13rq4yLiAJ/RWBJMjelJPRzezCzqnV0Kg2dkqDH8fxfx6hBD9ulzYrmP+JPRL1CQIDAQAB"</string>
+
+    <string name="css_light" translatable="false"><Data><![CDATA[ <style type="text/css"> html {overflow-x: hidden;} img {margin-left:-5px; margin-right:5px; width:310; height:50;} a {color: #417bf9; text-decoration: underline;}abbr {border-bottom-style: none; color: #009900; cursor: help; font-style: italic; } em {font-style: italic;}p {color: #222222; font-size: %dpt;}span {color: #666666;} abbr {text-decoration: none;} .acute {font-size: %dpt;} </style> ]]> </Data></string>
+    <string name="css_dark" translatable="false"><Data><![CDATA[ <style type="text/css"> html {overflow-x: hidden;} img {margin-left:-5px; margin-right:5px; width:310; height:50;} a {color: #3399ff; text-decoration: underline;}abbr {border-bottom-style: none; color: #00cc00; cursor: help; font-style: italic; } body {background-color: #333333;} em {font-style: italic;}p {color: #cccccc; font-size: %dpt;}span {color: #cccccc;} abbr {text-decoration: none;} .acute {font-size: %dpt;} </style> ]]> </Data></string>
+</resources>

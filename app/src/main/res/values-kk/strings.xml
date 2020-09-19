@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tab_dictionary">Сөздік</string>
+    <string name="tab_translation">Аудармашы</string>
+    <string name="tab_history">Тарих</string>
+    <string name="tab_favorites">Таңдамалы</string>
+    <string name="tab_profile">Профиль</string>
+    <string name="tab_logout">Шығу</string>
+    <string name="tab_login">Кіру</string>
+    <string name="tab_register">Тіркеу</string>
+
+    <!-- PreferencesFragment-->
+    <string name="general_settings">Жалпы баптаулар</string>
+    <string name="copyright" formatted="false">Нұсқасы %s\n© 2000 – %d \"sozdik.kz\" ЖШС</string>
+    <string name="show_kaz_keys">Қазақ әріптері</string>
+    <string name="haptic_feedback">Вибробелгі</string>
+    <string name="search">Іздеу</string>
+    <string name="share">Достарыма айту</string>
+    <string name="add_to_favorites">Таңдамалыға қосу</string>
+    <string name="clear_all">Тарихты жою</string>
+    <string name="clear_favorites">Таңдамалыны жою</string>
+    <string name="word_has_no_sound">Бұл сөздің дыбысталуы жоқ</string>
+    <string name="rate_app">Google Play-да бағалау</string>
+    <string name="rate_app_summary"> Өз пікіріңізді қалдырып, бізге қосымшаны жақсартуға көмектесіңіз</string>
+    <string name="about">Қолданба туралы</string>
+    <string name="no_favorites_yet">Таңдамалы сөздер әзірше жоқ</string>
+    <string name="select_several_items">Жойылатын сөзді таңдаңыз</string>
+    <string name="play_phrase">Дыбыстау</string>
+    <string name="start_search_now">Іздеу үшін … басыңыз</string>
+    <string name="search_hint">Сөзді енгізіңіз…</string>
+    <string name="write_to_developers">Құрастырушыларға жазу</string>
+    <string name="communicate">Кері байланыс</string>
+    <string name="add_word">Сөз қосу</string>
+    <string name="share_text">Мен Android-қа арналған sozdik.kz мобильді сөздігін қолданамын - http://szd.kz/android</string>
+    <string name="unable_to_translate_phrase_check_internet_connection">Қателік туындады, кейінірек талпыныс жасаңыз. Интернет-байланысты тексеріңіз</string>
+    <string name="close">Жабу</string>
+    <string name="settings_license_number">Лицензия нөмірі</string>
+    <string name="copy_text">Көшіріп алу</string>
+    <string name="license_number_copied_to_buffer">Лицензия нөмірі алмасу буферіне көшірілді</string>
+    <string name="phrase_contains_invalid_characters">Фразада рұқсат етілмеген символдар бар</string>
+    <string name="clear_input_after_translation_title">Аударғаннан кейін енгізу жолын тазарту</string>
+    <string name="share_translation">Жiберу</string>
+    <string name="translation_not_found" formatted="false"><Data><![CDATA[ <?xml version="1.0" encoding="UTF-8" ?> %s <html><body><span>\"%s\" сөзі табылмады.</span></body></html> ]]> </Data></string>
+    <string name="translation_not_found_suggestions" formatted="false"><Data><![CDATA[ <?xml version="1.0" encoding="UTF-8" ?> %s <html><body><span>\"%s\" сөзі табылмады. Сөздікте жазылуы осыған ұқсас сөздер бар:</span> %s</body></html> ]]> </Data></string>
+    <string name="night_mode">Түнгі режим</string>
+    <string name="yes">Иә</string>
+    <string name="cancel">Жою</string>
+    <string name="remove_selected_items">Таңдалған сөздерді жою</string>
+    <string name="removing">Жою</string>
+    <string name="disable_ad">Жарнамадан ажыратылу</string>
+    <string name="item_already_owned">Покупка уже совершена</string>
+    <string name="billing_service_unavailable_try_later">Платежный сервис Google в данный момент недоступен. Попробуйте позже</string>
+    <string name="purchase_disabling_ads_done">Құттықтаймыз! Жарнамадан ажыратылдыңыз</string>
+    <string name="font_size">Қаріп өлшемі</string>
+
+    <string name="error_no_internet_connection">Интернет-байланыс жоқ</string>
+    <string name="error_default_exception">Произошла ошибка. Попробуйте позже</string>
+    <string name="error_http_401">Требуется авторизация</string>
+
+    <string name="dictionary_wrong_phrase">Қате сөз тіркесі</string>
+    <string name="dictionary_suggestions_not_found">Емеуріндер табылмады</string>
+
+    <string name="settings_app_language">Интерфейс тілі</string>
+
+    <string-array name="font_size_entries">
+        <item>Ұсақ</item>
+        <item>Орта</item>
+        <item>Ірі</item>
+    </string-array>
+    <string name="press_back_again_to_exit">Шығу үшін тағы бір рет басыңыз</string>
+    <string name="clear_input_after_translation_summary">Енгізу жолын тазарту</string>
+    <string name="nav_menu_other_developer_apps">Құрастырушының басқа қолданбалары</string>
+
+    <string name="feedback_your_name">Сіздің атыңыз</string>
+    <string name="feedback_your_email">Сіздің email</string>
+    <string name="feedback_subject">Хабарлама тақырыбы</string>
+    <string name="feedback_text">Хабарлама мәтіні</string>
+    <string name="feedback_send">Жіберу</string>
+    <string name="feedback_error_wrong_email">Дұрыс email енгізіңіз</string>
+    <string name="feedback_error_empty_name">Атыңызды енгізіңіз</string>
+    <string name="feedback_error_empty_text">Хабарлама мәтінін енгізіңіз</string>
+    <string name="feedback_message_sent">Хабарлама жіберілді</string>
+    <string name="feedback_message_not_sent">Хабарлама жіберілмеді. Тағы да көріңіз</string>
+    <string name="feedback_sending">Sending…</string>
+    <string name="rate_question">Қолданба сізге ұнады ма?</string>
+    <string name="rate_positive">Өте ұнады!</string>
+    <string name="rate_negative">Ұнамады</string>
+
+    <string name="tab_from_kaz">Қазақ тілінен</string>
+    <string name="tab_from_rus">Орыс тілінен</string>
+
+    <string name="translation_mfa" formatted="false"><![CDATA[<abbr>ХФӘ:</abbr> <span>%s</span>]]></string>
+
+    <string name="settings_roman">Латын әліпбиі</string>
+    <string name="settings_roman_hint">Қазақша сөздерді латын әріптерімен кескіндеу</string>
+    <string name="settings_quick_translation">Жылдам аударма</string>
+    <string name="settings_quick_translation_toast">Енді мәтінді басқа қолданбада көшіріңіз</string>
+    <string name="settings_quick_translation_hint">Мәтінді басқа қолданбаларда көшіру барысында батырманы көрсету</string>
+
+    <string name="register_title">Тіркеу</string>
+    <string name="register_continue">Тіркеу</string>
+    <string name="register_login">Кіру</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Құпиясөз</string>
+    <string name="register_first_name">Аты</string>
+    <string name="register_last_name">Тегі</string>
+    <string name="register_error_wrong_first_name">Есіміңізді енгізіңіз</string>
+    <string name="register_error_wrong_last_name">Тегіңізді енгізіңіз</string>
+    <string name="register_error_wrong_email">Дұрыс email енгізіңіз</string>
+    <string name="register_error_wrong_password">Құпиясөз кемінде 6 таңбадан тұру керек</string>
+    <string name="register_menu_info">Ақпарат</string>
+    <string name="register_dialog_info_title">Ақпарат</string>
+    <string name="register_dialog_info_message">• Тек мына пошталардан тіркеле аласыз: @bk.ru, @gmail.com, @inbox.ru, @list.ru, @mail.ru, @outlook.com, @rambler.ru, @yahoo.com, @yandex.ru\n\n• Тіркелгеннен кейін поштаңызға растау коды бар хат келеді.\n\n• Қауіпсіз әрі есте оңай сақталатын құпиясөз ретінде 5–7 сөзден тұратын сөйлем пайдалануға болады.</string>
+    <string name="register_privacy_policy">Құпиялылық саясатын оқып шықтым</string>
+    <string name="register_privacy_policy_link_text">Құпиялылық саясатын</string>
+    <string name="register_privacy_policy_url">https://sozdik.kz/kk/privacy_policy/?header=0&amp;footer=0</string>
+    <string name="register_terms_of_use">Пайдалану ережелерімен келісемін</string>
+    <string name="register_terms_of_use_link_text">Пайдалану ережелерімен</string>
+    <string name="register_terms_of_use_url">https://sozdik.kz/kk/rules/?header=0&amp;footer=0</string>
+    <string name="register_already_registered">Тіркеліп қойғансыз ба?</string>
+    <string name="register_error_email_already_registered">Бұл e-mail тіркеліп қойған</string>
+    <string name="register_error_password_and_login_coincide">Құпиясөз email-мен сәйкес келмеуі тиіс</string>
+    <string name="register_error_email_unavailable">Рұқсат етілмеген пошта қызметінің email мекенжайы</string>
+
+    <string name="login_title">Кіру</string>
+    <string name="login_enter">Кіру</string>
+    <string name="login_error_wrong_email">Дұрыс email енгізіңіз</string>
+    <string name="login_error_empty_password">Құпиясөзді енгізіңіз</string>
+    <string name="login_error_wrong_email_or_password">Логин немесе құпиясөз қате</string>
+    <string name="login_or">немесе</string>
+
+    <string name="code_confirm_title">Тіркеуді растау</string>
+    <string name="code_confirm_description">Поштаңызға келген кодты енгізіңіз</string>
+    <string name="code_confirm_hint_code">Код</string>
+    <string name="code_confirm_continue">Жалғастыру</string>
+    <string name="code_confirm_error_empty_code">Хаттағы кодты енгізіңіз</string>
+    <string name="code_confirm_error_wrong_code">Қате код</string>
+    <string name="code_confirm_error_email_not_registered">Бұл email тіркелмеген</string>
+
+    <string name="history_empty">Аудармалар тарихы бос</string>
+    <string name="history_cleared">Аудармалар тарихы өшірілді</string>
+    <string name="history_question_removing">Сіз аудармалар тарихын шынымен тазартқыңыз келе ме?</string>
+    <string name="history_loading">Жүктеу…</string>
+    <string name="history_question_word_removing">Таңдалған сөзді аударма тарихынан өшіріп тастағыңыз келе ме?</string>
+
+    <string name="favorites_is_empty">Жою үшін таңдамалы сөздер жоқ</string>
+    <string name="favorites_cleared">Таңдамалы аудармалар өшірілді</string>
+    <string name="favorites_question_removing">Сіз барлық таңдалған сөздерді шынымен жойғыңыз келе ме?</string>
+    <string name="favorites_loading">Жүктеу…</string>
+    <string name="favorites_question_word_removing">Таңдалған сөзді таңдамалы тізімнен өшіріп тастағыңыз келе ме?</string>
+
+    <string name="translate_copy_to_clipboard">Алмасу буферіне көшіру</string>
+    <string name="translate_text_copied_to_buffer">Мәтін алмасу буферіне көшірілді</string>
+    <string name="translate_unable_to_copy_text_to_buffer">Мәтін алмастыру буферіне көшірілмеді</string>
+    <string name="translate_yandex_link"><Data><![CDATA[<a href="http://translate.yandex.ru/">«Яндекс.Переводчик»</a> қызметі арқылы аударылған]]> </Data></string>
+    <string name="translate_error_empty_text">Мәтінді енгізіңіз</string>
+
+    <string name="logout_dialog_title">Шығу</string>
+    <string name="logout_dialog_question">Расымен шыққыңыз келе ме?</string>
+
+    <string name="settings_back_action">Back түймесінің әрекеті</string>
+    <string-array name="settings_back_action_entries">
+        <item>Алдыңғы аудармаға оралу</item>
+        <item>Қосымшадан шығу</item>
+    </string-array>
+
+    <string name="system_context_menu_item">sozdik.kz-те аудару</string>
+
+    <string name="purchase_cancelled">Сатып алудан бас тартылды</string>
+    <string name="unable_to_disable_advertisement">Жарнаманы өшіру мүмкін болмады, құрастырушымен хабарласыңыз</string>
+    <string name="preferences">Баптаулар</string>
+</resources>
