@@ -23,3 +23,10 @@ Askar Syzdykov – [@askarsyzdykov](https://twitter.com/askarsyzdykov) – askar
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
+
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute.
+<a href="https://github.com/sozdik-kz/sozdik-android/graphs/contributors"><img src="https://opencollective.com/sozdikkz/contributors.svg?width=890&button=false&sanitize=true" /></a>
