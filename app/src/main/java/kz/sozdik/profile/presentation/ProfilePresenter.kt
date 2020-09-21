@@ -24,6 +24,7 @@ class ProfilePresenter @Inject constructor(
                 }
                 viewState.showProfileInfo(profile != null)
                 viewState.showLoginAndRegisterButtons(profile == null)
+                viewState.showLogoutButton(profile != null)
             }
         }
     }

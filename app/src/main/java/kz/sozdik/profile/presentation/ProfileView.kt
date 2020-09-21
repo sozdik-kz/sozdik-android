@@ -5,6 +5,7 @@ import moxy.MvpView
 
 interface ProfileView : MvpView {
     fun showLoginAndRegisterButtons(isVisible: Boolean)
+    fun showLogoutButton(isVisible: Boolean)
     fun showProfileInfo(isVisible: Boolean)
     fun setProfileInfo(profile: Profile)
 }
