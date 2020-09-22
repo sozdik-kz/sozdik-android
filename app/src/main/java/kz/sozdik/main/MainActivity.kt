@@ -51,8 +51,6 @@ class MainActivity : BaseActivity() {
             .build()
     }
 
-    private var backPressListener: BackPressListener? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
