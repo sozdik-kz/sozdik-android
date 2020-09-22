@@ -32,7 +32,8 @@ private const val ARG_SELECTED_FRAGMENT_ID = "ARG_SELECTED_FRAGMENT_ID"
 
 class MainFragment :
     Fragment(R.layout.fragment_main),
-    WordHandler {
+    WordHandler,
+    MainActivity.BackPressListener {
 
     private var wordToDisplay: Word? = null
 
@@ -77,6 +78,13 @@ class MainFragment :
         wordToDisplay = word
         bottomNavigationView.selectedItemId = R.id.nav_dictionary
         wordToDisplay = null
+    }
+
+    override fun onBackPressed() {
+        if (bottomNavigationView.selectedItemId != R.id.nav_dictionary) {
+            bottomNavigationView.selectedItemId = R.id.nav_dictionary
+            navigate(R.id.nav_dictionary)
+        }
     }
 
     private fun navigate(itemId: Int) {
