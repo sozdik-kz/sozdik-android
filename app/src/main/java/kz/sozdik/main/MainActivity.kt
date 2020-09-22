@@ -121,12 +121,12 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.fragments[0].childFragmentManager.fragments.isNotEmpty()) {
-            (supportFragmentManager.fragments[0].childFragmentManager.fragments[0] as? DictionaryFragment)?.let {
-                if (!it.isVisible) {
-                    (supportFragmentManager.fragments[0] as BackPressListener).onBackPressed()
-                    return
-                }
+        val mainFragment = supportFragmentManager.fragments.first()
+        val bottomNavigationFragments = mainFragment.childFragmentManager.fragments
+        if (bottomNavigationFragments.isNotEmpty()) {
+            if (!bottomNavigationFragments.first().isVisible) {
+                (mainFragment as BackPressListener).onBackPressed()
+                return
             }
         }
 
