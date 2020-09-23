@@ -80,11 +80,14 @@ class MainFragment :
         wordToDisplay = null
     }
 
-    override fun onBackPressed() {
+    override fun onBackPressed(): Boolean {
         if (bottomNavigationView.selectedItemId != R.id.nav_dictionary) {
             bottomNavigationView.selectedItemId = R.id.nav_dictionary
             navigate(R.id.nav_dictionary)
+            return true
         }
+
+        return false
     }
 
     private fun navigate(itemId: Int) {

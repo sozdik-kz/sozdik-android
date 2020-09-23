@@ -121,13 +121,9 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        val mainFragment = supportFragmentManager.fragments.first()
-        val bottomNavigationFragments = mainFragment.childFragmentManager.fragments
-        if (bottomNavigationFragments.isNotEmpty()) {
-            if (!bottomNavigationFragments.first().isVisible) {
-                (mainFragment as BackPressListener).onBackPressed()
-                return
-            }
+        val mainFragment = supportFragmentManager.findFragmentById(R.id.container)
+        if ((mainFragment as? BackPressListener)?.onBackPressed() == true) {
+            return
         }
 
         if (popFragment()) return
@@ -153,6 +149,6 @@ class MainActivity : BaseActivity() {
     }
 
     interface BackPressListener {
-        fun onBackPressed()
+        fun onBackPressed(): Boolean
     }
 }
