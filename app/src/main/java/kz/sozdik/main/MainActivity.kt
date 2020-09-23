@@ -121,8 +121,8 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        val mainFragment = supportFragmentManager.findFragmentById(R.id.container)
-        if ((mainFragment as? BackPressListener)?.onBackPressed() == true) {
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.container)
+        if ((currentFragment as? BackPressListener)?.onBackPressed() == true) {
             return
         }
 
