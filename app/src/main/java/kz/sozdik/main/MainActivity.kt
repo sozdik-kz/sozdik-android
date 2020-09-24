@@ -16,6 +16,7 @@ import kz.sozdik.core.services.ClipboardService
 import kz.sozdik.core.system.PrefsManager
 import kz.sozdik.core.utils.PreferencesHelper
 import kz.sozdik.di.getAppDepsProvider
+import kz.sozdik.dictionary.presentation.DictionaryFragment
 import kz.sozdik.presentation.utils.popFragment
 import kz.sozdik.presentation.utils.replaceFragment
 import kz.sozdik.profile.domain.ProfileInteractor
@@ -120,6 +121,11 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.container)
+        if ((currentFragment as? BackPressListener)?.onBackPressed() == true) {
+            return
+        }
+
         if (popFragment()) return
 
         if (doubleBackToExitPressedOnce) {
@@ -140,5 +146,9 @@ class MainActivity : BaseActivity() {
         if (prefsManager.isQuickTranslateEnabled()) {
             ClipboardService.start(this)
         }
+    }
+
+    interface BackPressListener {
+        fun onBackPressed(): Boolean
     }
 }
