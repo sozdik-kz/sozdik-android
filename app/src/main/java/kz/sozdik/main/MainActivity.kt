@@ -16,7 +16,6 @@ import kz.sozdik.core.services.ClipboardService
 import kz.sozdik.core.system.PrefsManager
 import kz.sozdik.core.utils.PreferencesHelper
 import kz.sozdik.di.getAppDepsProvider
-import kz.sozdik.dictionary.presentation.DictionaryFragment
 import kz.sozdik.presentation.utils.popFragment
 import kz.sozdik.presentation.utils.replaceFragment
 import kz.sozdik.profile.domain.ProfileInteractor
