@@ -29,4 +29,8 @@ Askar Syzdykov – [@askarsyzdykov](https://twitter.com/askarsyzdykov) – askar
 ### Code Contributors
 
 This project exists thanks to all the people who contribute.
-<a href="https://github.com/sozdik-kz/sozdik-android/graphs/contributors"><img src="https://opencollective.com/sozdikkz/contributors.svg?width=890&button=false&sanitize=1" /></a>
+<a href="https://github.com/sozdik-kz/sozdik-android/graphs/contributors"><img src="https://opencollective.com/sozdikkz/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+Become a financial contributor and help us sustain our community.
+https://docs.google.com/spreadsheets/d/1TLfDdGWMuZRnQRrFgX5emEYWbSNiRv0p47i-w04zD7c/edit#gid=0
