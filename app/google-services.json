@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "654978430104-1kanocarc39mqcif4c21pthbvaja9tkb.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "kz.sozdik",
-            "certificate_hash": "d8e45b0ba39fa3c728ca2ca5482a146a436fb03a"
-          }
-        },
-        {
           "client_id": "654978430104-20ismm5h7qlm7qceo04nvgc2upmgfbc5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -31,11 +23,11 @@
           }
         },
         {
-          "client_id": "654978430104-ha81mvfg5geoh9rkhrg4o3e7hvk333ve.apps.googleusercontent.com",
+          "client_id": "654978430104-1kanocarc39mqcif4c21pthbvaja9tkb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "kz.sozdik",
-            "certificate_hash": "bc96ab94cb6a4b31ddd6bc4893c448fea27bff85"
+            "certificate_hash": "d8e45b0ba39fa3c728ca2ca5482a146a436fb03a"
           }
         },
         {
@@ -49,48 +41,24 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:654978430104:android:e50b30f76735db51",
-        "android_client_info": {
-          "package_name": "kz.sozdik.beta"
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654978430104-56tp12r2lll3ek5t9edp5n2s3cal3gu4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "654978430104-01l2t8mmaqpkb2kbged3e48g0karmi5d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "kz.sozdik",
+                "app_store_id": "1206276765"
+              }
+            }
+          ]
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "654978430104-56tp12r2lll3ek5t9edp5n2s3cal3gu4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCpFMGzL7zYgXDOxR8ux8XYXusIzNwDuLk"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
+      "admob_app_id": "ca-app-pub-8798922455311766~3155963930"
     },
     {
       "client_info": {
@@ -119,11 +87,7 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "654978430104-56tp12r2lll3ek5t9edp5n2s3cal3gu4.apps.googleusercontent.com",
@@ -138,9 +102,80 @@
               }
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654978430104:android:56aad30cfced9258008ced",
+        "android_client_info": {
+          "package_name": "kz.sozdik.free"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654978430104-56tp12r2lll3ek5t9edp5n2s3cal3gu4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpFMGzL7zYgXDOxR8ux8XYXusIzNwDuLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654978430104-56tp12r2lll3ek5t9edp5n2s3cal3gu4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "654978430104-01l2t8mmaqpkb2kbged3e48g0karmi5d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "kz.sozdik",
+                "app_store_id": "1206276765"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654978430104:android:0920ff517e083c18008ced",
+        "android_client_info": {
+          "package_name": "kz.sozdik.free.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654978430104-56tp12r2lll3ek5t9edp5n2s3cal3gu4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpFMGzL7zYgXDOxR8ux8XYXusIzNwDuLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654978430104-56tp12r2lll3ek5t9edp5n2s3cal3gu4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "654978430104-01l2t8mmaqpkb2kbged3e48g0karmi5d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "kz.sozdik",
+                "app_store_id": "1206276765"
+              }
+            }
+          ]
         }
       }
     }
