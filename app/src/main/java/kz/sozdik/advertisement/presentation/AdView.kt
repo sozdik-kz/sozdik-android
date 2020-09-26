@@ -7,8 +7,6 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
-import com.crashlytics.android.answers.Answers
-import com.crashlytics.android.answers.CustomEvent
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.view.SimpleDraweeView
 import kz.sozdik.R
@@ -77,7 +75,6 @@ class AdView @JvmOverloads constructor(
             .build()
         customAdView.controller = controller
         customAdView.setOnClickListener {
-            Answers.getInstance().logCustom(CustomEvent("Banner click. Custom"))
             context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(banner.redirectUrl)))
         }
     }
@@ -87,8 +84,8 @@ class AdView @JvmOverloads constructor(
     }
 
     override fun changeAdViewVisibility(provider: AdProvider, isVisible: Boolean) {
-        when (provider) {
-            AdProvider.CUSTOM -> customAdView.isVisible = isVisible
+        if (provider == AdProvider.CUSTOM) {
+            customAdView.isVisible = isVisible
         }
     }
 }

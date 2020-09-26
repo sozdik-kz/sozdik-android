@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- START xml_defaults -->
 <defaultsMap>
     <entry>
-        <key>custom_ad_enabled</key>
-        <value>false</value>
-    </entry>
-    <entry>
         <key>android_ad_provider</key>
-        <value>google</value>
+        <value>disabled_by_developer</value>
     </entry>
 </defaultsMap>
