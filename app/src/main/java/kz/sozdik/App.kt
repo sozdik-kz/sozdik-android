@@ -4,11 +4,8 @@ import android.content.ContextWrapper
 import android.os.Build
 import android.os.StrictMode
 import androidx.multidex.MultiDexApplication
-import com.crashlytics.android.Crashlytics
-import com.crashlytics.android.core.CrashlyticsCore
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.pixplicity.easyprefs.library.Prefs
-import io.fabric.sdk.android.Fabric
 import kz.sozdik.core.di.AppDependency
 import kz.sozdik.di.ApplicationComponent
 import kz.sozdik.di.DaggerApplicationComponent
@@ -25,7 +22,6 @@ class App : MultiDexApplication(), AppDependency.AppDepsProvider {
         setupDependencies()
         setupStrictMode()
         setupFresco()
-        setupCrashlytics()
         setupTimber()
         setupEasyPrefs()
     }
@@ -38,16 +34,6 @@ class App : MultiDexApplication(), AppDependency.AppDepsProvider {
 
     private fun setupFresco() {
         Fresco.initialize(this)
-    }
-
-    private fun setupCrashlytics() {
-        val core = CrashlyticsCore.Builder()
-            .disabled(BuildConfig.DEBUG)
-            .build()
-        val crashlytics = Crashlytics.Builder()
-            .core(core)
-            .build()
-        Fabric.with(baseContext, crashlytics)
     }
 
     private fun setupTimber() {

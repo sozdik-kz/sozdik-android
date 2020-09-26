@@ -1,10 +1,10 @@
 plugins {
     id "com.android.application"
     id "com.github.triplet.play"
+    id "com.google.firebase.crashlytics"
     id "kotlin-android"
     id "kotlin-android-extensions"
     id "kotlin-kapt"
-    id "io.fabric"
 }
 
 apply from: "$project.rootDir/scripts/credentials.gradle"
@@ -44,7 +44,6 @@ android {
             applicationIdSuffix ".debug"
             versionNameSuffix "-DEBUG"
             debuggable true
-            ext.enableCrashlytics = false
 
             buildConfigField "String", "SOZDIK_API_CLIENT_NAME", "\"$SOZDIK_API_CLIENT_NAME\""
             buildConfigField "String", "SOZDIK_API_KEY", "\"$SOZDIK_API_KEY\""
@@ -89,10 +88,12 @@ dependencies {
     implementation "com.google.android.material:material:1.2.1"
     implementation "com.google.android.gms:play-services-auth:18.1.0"
 
+    implementation "com.google.firebase:firebase-analytics:17.5.0"
     implementation "com.google.firebase:firebase-auth:19.4.0"
-    implementation "com.google.firebase:firebase-core:17.5.0"
-    implementation "com.google.firebase:firebase-messaging:20.2.4"
     implementation "com.google.firebase:firebase-config:19.2.0"
+    implementation "com.google.firebase:firebase-core:17.5.0"
+    implementation "com.google.firebase:firebase-crashlytics:17.2.1"
+    implementation "com.google.firebase:firebase-messaging:20.2.4"
 
     implementation "com.facebook.android:facebook-login:5.9.0"
 
@@ -156,10 +157,6 @@ dependencies {
 
     // https://github.com/JakeWharton/timber
     implementation "com.jakewharton.timber:timber:4.7.1"
-
-    implementation("com.crashlytics.sdk.android:crashlytics:2.10.1@aar") {
-        transitive = true
-    }
 
     // https://square.github.io/leakcanary
     debugImplementation "com.squareup.leakcanary:leakcanary-android:2.4"
