@@ -28,6 +28,7 @@ interface DictionaryView : MvpView {
 
     fun collapseSearchView()
 
+    @StateStrategyType(value = OneExecutionStateStrategy::class)
     fun showNoNetworkError()
 
     fun onSuggestionsLoaded(suggestions: List<String>)
@@ -44,6 +45,7 @@ interface DictionaryView : MvpView {
     @StateStrategyType(value = SkipStrategy::class)
     fun openBrowser(url: String)
 
+    @StateStrategyType(value = OneExecutionStateStrategy::class)
     fun showError(message: String)
 
     fun showTranslationCourse(language: String)

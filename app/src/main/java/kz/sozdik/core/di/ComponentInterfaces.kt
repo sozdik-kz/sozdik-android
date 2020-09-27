@@ -1,6 +1,7 @@
 package kz.sozdik.core.di
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Vibrator
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
@@ -37,7 +38,8 @@ interface AppDependency :
     }
 
     fun provideContext(): Context
-    fun provideSharedPreferences(): PrefsManager
+    fun provideSharedPreferences(): SharedPreferences
+    fun providePrefsManager(): PrefsManager
     fun provideFirebaseRemoteConfig(): FirebaseRemoteConfig
     fun provideWordDao(): WordDao
     fun provideRetrofit(): Retrofit

@@ -5,8 +5,8 @@ import com.google.gson.Gson
 import com.google.gson.JsonParser
 import dagger.Module
 import dagger.Provides
-import kz.sozdik.di.qualifiers.OkHttpInterceptors
-import kz.sozdik.di.qualifiers.OkHttpNetworkInterceptors
+import kz.sozdik.core.network.qualifiers.OkHttpInterceptors
+import kz.sozdik.core.network.qualifiers.OkHttpNetworkInterceptors
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
 import timber.log.Timber

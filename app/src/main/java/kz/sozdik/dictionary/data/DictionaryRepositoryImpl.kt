@@ -9,6 +9,8 @@ import kz.sozdik.dictionary.domain.model.Word
 import timber.log.Timber
 import javax.inject.Inject
 
+private const val SUCCESS_TRANSLATION_LANGUAGE_INVERTED = 2
+
 class DictionaryRepositoryImpl @Inject constructor(
     private val dictionaryApi: DictionaryApi,
     private val wordDao: WordDao
@@ -16,7 +18,7 @@ class DictionaryRepositoryImpl @Inject constructor(
 
     override suspend fun translate(langFrom: String, langTo: String, phrase: String): TranslatePhraseResult {
         val localWord = wordDao.getWord(phrase, langFrom, langTo)
-        val word = if (localWord == null) {
+        val word = if (localWord == null || !localWord.isRight) {
             Timber.e("No word in the local storage, switching to remote data source")
             loadWordFromServerAndSave(langFrom, langTo, phrase)
         } else {
@@ -36,7 +38,10 @@ class DictionaryRepositoryImpl @Inject constructor(
         phrase: String
     ): Word? {
         val response = dictionaryApi.translate(langFrom, langTo, phrase)
-        return if (response.result == ResponseWrapper.RESULT_OK) {
+        return if (
+            response.result == ResponseWrapper.RESULT_OK ||
+            response.result == SUCCESS_TRANSLATION_LANGUAGE_INVERTED
+        ) {
             val word = response.data
             Timber.i("$word is loaded from the server")
             word.translatedAt = System.currentTimeMillis()

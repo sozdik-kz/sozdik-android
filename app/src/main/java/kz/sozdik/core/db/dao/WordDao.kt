@@ -22,7 +22,7 @@ interface WordDao {
     suspend fun insertOrUpdate(word: Word)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(words: List<Word>)
+    suspend fun insert(words: List<Word>)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun update(word: Word): Int

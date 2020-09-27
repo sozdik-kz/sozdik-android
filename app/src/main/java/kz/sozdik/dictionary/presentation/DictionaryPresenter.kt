@@ -92,9 +92,11 @@ class DictionaryPresenter @Inject constructor(
         updateToolbarTitle()
     }
 
-    fun translatePhraseFromHistory(phrase: String) {
+    fun translatePhraseFromHistory(word: Word) {
         isTranslateFromHistory = true
-        translatePhrase(phrase)
+        langFrom = word.langFrom
+        langTo = word.langTo
+        translatePhrase(word.phrase)
     }
 
     fun translatePhrase(phrase: String) {

@@ -1,6 +1,8 @@
 package kz.sozdik.di.modules
 
 import android.content.Context
+import android.content.SharedPreferences
+import androidx.preference.PreferenceManager
 import androidx.room.Room
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import dagger.Module
@@ -11,6 +13,11 @@ import kz.sozdik.profile.data.db.ProfileDao
 
 @Module
 object DataModule {
+
+    @Provides
+    @JvmStatic
+    fun provideSharedPreferences(context: Context): SharedPreferences =
+        PreferenceManager.getDefaultSharedPreferences(context)
 
     @Provides
     @JvmStatic

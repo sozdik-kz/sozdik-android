@@ -44,6 +44,7 @@ class Word(
     val isFavorite: Boolean
         get() = favourite == 1
 
+    // TODO: Should be used only in presentation layer
     val isRight: Boolean
         get() = !translation.isNullOrEmpty()
 

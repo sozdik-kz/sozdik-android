@@ -1,5 +1,6 @@
-package kz.sozdik.di.modules
+package kz.sozdik.core.network
 
+import android.content.SharedPreferences
 import android.os.Build
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
@@ -7,12 +8,10 @@ import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import kz.sozdik.BuildConfig
-import kz.sozdik.core.AuthUtils
-import kz.sozdik.core.network.NetworkChecker
-import kz.sozdik.core.network.interceptors.NetworkCheckInterceptor
+import kz.sozdik.core.network.provider.TokenProvider
 import kz.sozdik.core.utils.DeviceInfo
-import kz.sozdik.di.qualifiers.OkHttpInterceptors
-import kz.sozdik.di.qualifiers.OkHttpNetworkInterceptors
+import kz.sozdik.core.network.qualifiers.OkHttpInterceptors
+import kz.sozdik.core.network.qualifiers.OkHttpNetworkInterceptors
 import okhttp3.FormBody
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
@@ -51,8 +50,14 @@ object NetworkModule {
 
     @Provides
     @JvmStatic
+    fun provideTokenProvider(sharedPreferences: SharedPreferences): TokenProvider {
+        return TokenProvider(sharedPreferences)
+    }
+
+    @Provides
+    @JvmStatic
     fun provideOkHttpClient(
-        networkChecker: NetworkChecker,
+        tokenProvider: TokenProvider,
         deviceInfo: DeviceInfo,
         @OkHttpInterceptors interceptors: List<@JvmSuppressWildcards Interceptor>,
         @OkHttpNetworkInterceptors networkInterceptors: List<@JvmSuppressWildcards Interceptor>,
@@ -69,8 +74,9 @@ object NetworkModule {
                     .add("client_password", BuildConfig.SOZDIK_API_KEY)
                     .add("device_id", deviceInfo.deviceId)
                     .add("client_os_version", getClientOsVersion())
-            if (AuthUtils.isAuthorized()) {
-                bodyBuilder.add("auth_token", AuthUtils.getAuthToken())
+            val token = tokenProvider.token
+            if (token != null) {
+                bodyBuilder.add("auth_token", token)
             }
             val postBodyString = buildString {
                 originalRequest.body?.let { requestBody ->
@@ -88,7 +94,6 @@ object NetworkModule {
                 .build()
             chain.proceed(newRequest)
         }
-        okHttpBuilder.addInterceptor(NetworkCheckInterceptor(networkChecker))
         interceptors.forEach {
             okHttpBuilder.addInterceptor(it)
         }

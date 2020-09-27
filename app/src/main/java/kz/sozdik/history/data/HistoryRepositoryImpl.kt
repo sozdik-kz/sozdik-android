@@ -1,7 +1,7 @@
 package kz.sozdik.history.data
 
-import kz.sozdik.core.AuthUtils
 import kz.sozdik.core.db.dao.WordDao
+import kz.sozdik.core.network.provider.TokenProvider
 import kz.sozdik.core.utils.Lang
 import kz.sozdik.dictionary.domain.model.Word
 import kz.sozdik.history.data.api.HistoryApi
@@ -10,11 +10,12 @@ import javax.inject.Inject
 
 class HistoryRepositoryImpl @Inject constructor(
     private val historyApi: HistoryApi,
-    private val wordDao: WordDao
+    private val wordDao: WordDao,
+    private val tokenProvider: TokenProvider,
 ) : HistoryRepository {
 
     override suspend fun getHistory(langFrom: String): List<Word> {
-        if (AuthUtils.isAuthorized()) {
+        if (tokenProvider.token != null) {
             val words = historyApi.loadHistory().data
             wordDao.insert(words)
         }

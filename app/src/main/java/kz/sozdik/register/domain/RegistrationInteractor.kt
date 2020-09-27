@@ -1,6 +1,6 @@
 package kz.sozdik.register.domain
 
-import kz.sozdik.core.AuthUtils
+import kz.sozdik.core.network.provider.TokenProvider
 import kz.sozdik.profile.domain.ProfileInteractor
 import kz.sozdik.register.domain.model.ConfirmationCodeResult
 import kz.sozdik.register.domain.model.RegisterResult
@@ -8,7 +8,8 @@ import javax.inject.Inject
 
 class RegistrationInteractor @Inject constructor(
     private val registerRemoteGateway: RegisterRemoteGateway,
-    private val profileInteractor: ProfileInteractor
+    private val profileInteractor: ProfileInteractor,
+    private val tokenProvider: TokenProvider,
 ) {
 
     suspend fun register(
@@ -23,7 +24,7 @@ class RegistrationInteractor @Inject constructor(
     suspend fun confirmCode(code: String, confirmationToken: String): ConfirmationCodeResult {
         val result = registerRemoteGateway.confirmCode(code, confirmationToken)
         if (result is ConfirmationCodeResult.Token) {
-            AuthUtils.setAuthToken(result.authToken)
+            tokenProvider.token = result.authToken
             profileInteractor.loadProfile()
         }
         return result

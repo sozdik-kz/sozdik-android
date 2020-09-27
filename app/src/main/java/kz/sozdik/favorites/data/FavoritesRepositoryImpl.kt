@@ -1,8 +1,8 @@
 package kz.sozdik.favorites.data
 
-import kz.sozdik.core.AuthUtils
 import kz.sozdik.core.db.dao.WordDao
 import kz.sozdik.core.models.ResponseWrapper
+import kz.sozdik.core.network.provider.TokenProvider
 import kz.sozdik.dictionary.domain.model.Word
 import kz.sozdik.favorites.data.api.FavoriteApi
 import kz.sozdik.favorites.domain.FavoritesRepository
@@ -10,11 +10,12 @@ import javax.inject.Inject
 
 class FavoritesRepositoryImpl @Inject constructor(
     private val favoriteApi: FavoriteApi,
-    private val wordDao: WordDao
+    private val wordDao: WordDao,
+    private val tokenProvider: TokenProvider,
 ) : FavoritesRepository {
 
     override suspend fun getFavorites(langFrom: String): List<Word> {
-        if (AuthUtils.isAuthorized()) {
+        if (isAuthorized()) {
             val words = favoriteApi.loadFavorites(langFrom).data
             wordDao.insert(words)
         }
@@ -30,7 +31,7 @@ class FavoritesRepositoryImpl @Inject constructor(
 
     // TODO: Сделать сразу обновление без вызова метода getWord()
     override suspend fun createFavoritePhrase(word: Word): Word =
-        if (AuthUtils.isAuthorized()) {
+        if (isAuthorized()) {
             val response = favoriteApi.createFavoritePhrase(word.langFrom, word.langTo, word.phrase)
             if (response.result == ResponseWrapper.RESULT_OK) {
                 val word = response.data
@@ -51,7 +52,7 @@ class FavoritesRepositoryImpl @Inject constructor(
         }
 
     override suspend fun deleteFavoritePhrase(word: Word): Word =
-        if (AuthUtils.isAuthorized()) {
+        if (isAuthorized()) {
             val response = favoriteApi.deleteFavoritePhrase(word.langFrom, word.langTo, word.phrase)
             if (response.result == ResponseWrapper.RESULT_OK) {
                 val word = response.data
@@ -70,4 +71,6 @@ class FavoritesRepositoryImpl @Inject constructor(
             }
             word!!
         }
+
+    private fun isAuthorized(): Boolean = tokenProvider.token != null
 }

@@ -128,7 +128,7 @@ class DictionaryFragment :
         super.onViewCreated(view, savedInstanceState)
         val wordToDisplay = arguments?.getSerializable(ARGUMENT_WORD) as? Word
         if (wordToDisplay != null) {
-            presenter.translatePhraseFromHistory(wordToDisplay.phrase)
+            presenter.translatePhraseFromHistory(wordToDisplay)
         }
         setupViews()
         setupToolbar()

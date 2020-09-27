@@ -1,4 +1,4 @@
-package kz.sozdik.di.qualifiers
+package kz.sozdik.core.network.qualifiers
 
 import javax.inject.Qualifier
 

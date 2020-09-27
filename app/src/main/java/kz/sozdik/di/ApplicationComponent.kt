@@ -7,7 +7,7 @@ import kz.sozdik.App
 import kz.sozdik.core.di.AppDependency
 import kz.sozdik.di.modules.ApplicationModule
 import kz.sozdik.di.modules.DataModule
-import kz.sozdik.di.modules.NetworkModule
+import kz.sozdik.core.network.NetworkModule
 import kz.sozdik.di.modules.OkHttpInterceptorsModule
 import kz.sozdik.dictionary.di.MediaModule
 import kz.sozdik.favorites.di.FavoriteModule

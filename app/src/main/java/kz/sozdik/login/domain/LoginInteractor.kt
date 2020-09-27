@@ -1,6 +1,6 @@
 package kz.sozdik.login.domain
 
-import kz.sozdik.core.AuthUtils
+import kz.sozdik.core.network.provider.TokenProvider
 import kz.sozdik.history.domain.HistoryInteractor
 import kz.sozdik.login.data.api.model.SocialAuthOutput
 import kz.sozdik.login.domain.gateway.LoginRemoteGateway
@@ -11,7 +11,8 @@ import javax.inject.Inject
 class LoginInteractor @Inject constructor(
     private val loginRemoteGateway: LoginRemoteGateway,
     private val profileInteractor: ProfileInteractor,
-    private val historyInteractor: HistoryInteractor
+    private val historyInteractor: HistoryInteractor,
+    private val tokenProvider: TokenProvider,
 ) {
 
     suspend fun socialAuth(info: SocialAuthOutput): LoginResult =
@@ -31,7 +32,7 @@ class LoginInteractor @Inject constructor(
     private suspend fun handleLoginResult(loginResult: LoginResult) {
         if (loginResult is LoginResult.Token) {
             historyInteractor.clearAllWordsLocally()
-            AuthUtils.setAuthToken(loginResult.token)
+            tokenProvider.token = loginResult.token
             profileInteractor.loadProfile()
         }
     }
