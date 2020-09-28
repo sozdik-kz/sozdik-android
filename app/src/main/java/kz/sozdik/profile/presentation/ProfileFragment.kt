@@ -38,7 +38,6 @@ class ProfileFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         toolbar.inflateMenu(R.menu.menu_profile)
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
@@ -102,5 +101,9 @@ class ProfileFragment :
     override fun setProfileInfo(profile: Profile) {
         fullNameTextView.text = profile.fullName
         avatarImageView.setImageURI(profile.avatarUrl)
+    }
+
+    override fun showLogoutButton(isVisible: Boolean) {
+        toolbar.menu.findItem(R.id.action_logout).isVisible = isVisible
     }
 }

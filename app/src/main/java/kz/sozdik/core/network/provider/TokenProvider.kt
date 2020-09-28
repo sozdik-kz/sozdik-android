@@ -15,7 +15,7 @@ class TokenProvider @Inject constructor(
         set(value) {
             field = value
             runBlocking {
-                sharedPreferences.edit {
+                sharedPreferences.edit(commit = true){
                     putString(KEY_SESSION_TOKEN, value)
                 }
             }
