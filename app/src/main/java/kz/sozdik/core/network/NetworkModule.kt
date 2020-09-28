@@ -88,7 +88,7 @@ object NetworkModule {
                     )
                 )
             }
-            val contentType = "application/x-www-form-urlencoded;charset=UTF-8".toMediaType()
+            val contentType = "application/x-www-form-urlencoded".toMediaType()
             val newRequest = originalRequest.newBuilder()
                 .post(postBodyString.toRequestBody(contentType))
                 .build()

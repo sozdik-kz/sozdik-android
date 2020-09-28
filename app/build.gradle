@@ -19,8 +19,8 @@ android {
         minSdkVersion 21
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 20200606
-        versionName "3.42"
+        versionCode 20200928
+        versionName "3.5"
         multiDexEnabled true
         signingConfig signingConfigs.release
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -36,8 +36,8 @@ android {
 
         resConfigs "en", "kk", "ky", "ru", "ar"
     }
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
     buildTypes {
         debug {
@@ -113,7 +113,6 @@ dependencies {
     kapt "com.github.moxy-community:moxy-compiler:$moxyVersion"
 
     // https://square.github.io/retrofit/
-    // Don't upgrade Retrofit version to 2.7, because it updates OkHttp and breaks the app on Android 4.x
     def retrofitVersion = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
@@ -145,7 +144,10 @@ dependencies {
 
     implementation "com.github.askarsyzdykov:bubbles-for-android:1.2.1.8"
 
-    debugImplementation "com.squareup.okhttp3:logging-interceptor:4.7.2"
+    // https://github.com/square/okhttp
+    def okHttpVersion = "4.8.1"
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    debugImplementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 
     def stethoVersion = "1.5.1"
     debugImplementation("com.facebook.stetho:stetho:$stethoVersion") {

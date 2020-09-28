@@ -1,11 +1,9 @@
 package kz.sozdik.di.modules
 
-import java.util.List
-import java.util.ArrayList
 import dagger.Module
 import dagger.Provides
-import kz.sozdik.di.qualifiers.OkHttpInterceptors
-import kz.sozdik.di.qualifiers.OkHttpNetworkInterceptors
+import kz.sozdik.core.network.qualifiers.OkHttpInterceptors
+import kz.sozdik.core.network.qualifiers.OkHttpNetworkInterceptors
 import okhttp3.Interceptor
 
 @Module
@@ -13,10 +11,10 @@ object OkHttpInterceptorsModule {
     @Provides
     @OkHttpInterceptors
     @JvmStatic
-    fun provideOkHttpInterceptors(): List<Interceptor> = ArrayList()
+    fun provideOkHttpInterceptors(): List<Interceptor> = emptyList()
 
     @Provides
     @OkHttpNetworkInterceptors
     @JvmStatic
-    fun provideOkHttpNetworkInterceptors(): List<Interceptor> = ArrayList()
+    fun provideOkHttpNetworkInterceptors(): List<Interceptor> = emptyList()
 }
