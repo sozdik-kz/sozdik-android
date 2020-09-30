@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Vibrator
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
-import kz.sozdik.core.db.dao.WordDao
+import kz.sozdik.dictionary.data.db.WordDao
 import kz.sozdik.core.system.PrefsManager
 import kz.sozdik.favorites.domain.FavoritesRepository
 import kz.sozdik.history.domain.HistoryRepository

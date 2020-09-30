@@ -8,7 +8,7 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import dagger.Module
 import dagger.Provides
 import kz.sozdik.core.db.SozdikDatabase
-import kz.sozdik.core.db.dao.WordDao
+import kz.sozdik.dictionary.data.db.WordDao
 import kz.sozdik.profile.data.db.ProfileDao
 
 @Module

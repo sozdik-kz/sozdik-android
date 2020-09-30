@@ -2,8 +2,8 @@ package kz.sozdik.dictionary.data.api
 
 import kz.sozdik.core.models.ResponseWrapper
 import kz.sozdik.dictionary.data.api.model.SuggestionsInfo
+import kz.sozdik.dictionary.data.api.model.WordInfo
 import kz.sozdik.dictionary.domain.model.Audio
-import kz.sozdik.dictionary.domain.model.Word
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -19,7 +19,7 @@ interface DictionaryApi {
         @Field("output_samples") outputSamples: Int = 1,
         @Field("output_links") outputLinks: Int = 1,
         @Field("api_method") apiMethod: String = "dictionary.article.read"
-    ): ResponseWrapper<Word>
+    ): ResponseWrapper<WordInfo>
 
     @FormUrlEncoded
     @POST("api/")

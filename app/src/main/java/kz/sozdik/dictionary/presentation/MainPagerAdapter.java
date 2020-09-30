@@ -1,9 +1,10 @@
 package kz.sozdik.dictionary.presentation;
 
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -141,9 +142,4 @@ public class MainPagerAdapter extends PagerAdapter {
     public List<Word> getWords() {
         return words;
     }
-
-    // Other relevant methods:
-
-    // finishUpdate - called by the ViewPager - we don't care about what pages the
-    // pager is displaying so we don't use this method.
 }
