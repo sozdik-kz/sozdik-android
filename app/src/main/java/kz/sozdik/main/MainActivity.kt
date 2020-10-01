@@ -125,8 +125,6 @@ class MainActivity : BaseActivity() {
             return
         }
 
-        if (popFragment()) return
-
         if (doubleBackToExitPressedOnce) {
             exitToast?.cancel()
             finish()
