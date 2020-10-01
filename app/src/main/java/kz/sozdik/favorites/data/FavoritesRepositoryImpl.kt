@@ -1,8 +1,10 @@
 package kz.sozdik.favorites.data
 
-import kz.sozdik.core.db.dao.WordDao
 import kz.sozdik.core.models.ResponseWrapper
 import kz.sozdik.core.network.provider.TokenProvider
+import kz.sozdik.dictionary.data.api.model.toWordDto
+import kz.sozdik.dictionary.data.db.WordDao
+import kz.sozdik.dictionary.data.db.model.toWord
 import kz.sozdik.dictionary.domain.model.Word
 import kz.sozdik.favorites.data.api.FavoriteApi
 import kz.sozdik.favorites.domain.FavoritesRepository
@@ -16,10 +18,12 @@ class FavoritesRepositoryImpl @Inject constructor(
 
     override suspend fun getFavorites(langFrom: String): List<Word> {
         if (isAuthorized()) {
-            val words = favoriteApi.loadFavorites(langFrom).data
-            wordDao.insert(words)
+            val wordDtoList = favoriteApi.loadFavorites(langFrom).data.map {
+                it.toWordDto()
+            }
+            wordDao.insert(wordDtoList)
         }
-        return wordDao.getFavoriteWords(langFrom)
+        return wordDao.getFavoriteWords(langFrom).map { it.toWord() }
     }
 
     override suspend fun clearFavorites(langFrom: String) {
@@ -29,48 +33,44 @@ class FavoritesRepositoryImpl @Inject constructor(
 
     override suspend fun getFavoriteWordsCount(): Int = wordDao.favoriteWordsCount()
 
-    // TODO: Сделать сразу обновление без вызова метода getWord()
-    override suspend fun createFavoritePhrase(word: Word): Word =
+    override suspend fun inverseFavorite(word: Word): Word =
         if (isAuthorized()) {
-            val response = favoriteApi.createFavoritePhrase(word.langFrom, word.langTo, word.phrase)
-            if (response.result == ResponseWrapper.RESULT_OK) {
-                val word = response.data
-                wordDao.getWord(word.phrase, word.langFrom, word.langTo)
-                word.favourite = 1
-                wordDao.update(word)
-                word
-            } else {
-                throw IllegalStateException("Unable to create favorite word")
-            }
+            updateOnRemote(word)
         } else {
-            val word = wordDao.getWord(word.phrase, word.langFrom, word.langTo)
-            if (word != null) {
-                word.favourite = 1
-                wordDao.update(word)
-            }
-            word!!
+            updateInDb(word)
         }
 
-    override suspend fun deleteFavoritePhrase(word: Word): Word =
-        if (isAuthorized()) {
-            val response = favoriteApi.deleteFavoritePhrase(word.langFrom, word.langTo, word.phrase)
-            if (response.result == ResponseWrapper.RESULT_OK) {
-                val word = response.data
-                val localWord = wordDao.getWord(word.phrase, word.langFrom, word.langTo)!!
-                localWord.favourite = 0
-                wordDao.update(localWord)
-                localWord
+    private suspend fun updateOnRemote(word: Word): Word {
+        val isFavorite = !word.isFavorite
+        val response = if (isFavorite) {
+            favoriteApi.createFavoritePhrase(word.langFrom, word.langTo, word.phrase)
+        } else {
+            favoriteApi.deleteFavoritePhrase(word.langFrom, word.langTo, word.phrase)
+        }
+        return if (response.result == ResponseWrapper.RESULT_OK) {
+            val newFavoriteValue = response.data.favourite
+            val wordDto = response.data.toWordDto().copy(favourite = newFavoriteValue)
+            wordDao.update(wordDto)
+            word.copy(isFavorite = newFavoriteValue == 1)
+        } else {
+            word
+        }
+    }
+
+    private suspend fun updateInDb(word: Word): Word {
+        val isFavorite = !word.isFavorite
+        val wordDto = wordDao.getWord(word.phrase, word.langFrom, word.langTo)
+        return if (wordDto != null) {
+            val changedRowsCount = wordDao.update(wordDto.copy(favourite = if (isFavorite) 1 else 0))
+            if (changedRowsCount == 0) {
+                word
             } else {
-                throw IllegalStateException("Unable to delete favorite word")
+                word.copy(isFavorite = isFavorite)
             }
         } else {
-            val word = wordDao.getWord(word.phrase, word.langFrom, word.langTo)
-            if (word != null) {
-                word.favourite = 0
-                wordDao.update(word)
-            }
-            word!!
+            word
         }
+    }
 
     private fun isAuthorized(): Boolean = tokenProvider.token != null
 }

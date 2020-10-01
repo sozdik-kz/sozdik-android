@@ -358,39 +358,17 @@ class DictionaryPresenter @Inject constructor(
     }
 
     fun onFavoriteClick() {
-        currentWord?.let { word ->
-            if (word.isFavorite) {
-                unfavoriteWord(word)
-            } else {
-                favoriteWord(word)
-            }
-        }
-    }
-
-    private fun favoriteWord(word: Word) {
-        launch {
-            try {
-                val word = favoritesInteractor.createFavoritesPhrase(word)
-                if (word.isSameWord(currentWord)) {
-                    currentWord?.favourite = 1
+        currentWord?.let {
+            launch {
+                try {
+                    val word = favoritesInteractor.inverseFavoritesPhrase(it)
+                    if (word == currentWord) {
+                        currentWord = word
+                    }
+                    viewState.onFavoriteStateChanged(word)
+                } catch (t: Throwable) {
+                    viewState.showError(ErrorMessageFactory.create(resourceManager, t))
                 }
-                viewState.onFavoriteStateChanged(word, true)
-            } catch (t: Throwable) {
-                viewState.showError(ErrorMessageFactory.create(resourceManager, t))
-            }
-        }
-    }
-
-    private fun unfavoriteWord(word: Word) {
-        launch {
-            try {
-                val word = favoritesInteractor.deletePhraseFromFavorites(word)
-                if (word.isSameWord(currentWord)) {
-                    currentWord?.favourite = 0
-                }
-                viewState.onFavoriteStateChanged(word, false)
-            } catch (t: Throwable) {
-                viewState.showError(ErrorMessageFactory.create(resourceManager, t))
             }
         }
     }

@@ -3,7 +3,6 @@ package kz.sozdik.profile.di
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kz.sozdik.profile.data.api.ProfileApi
 import kz.sozdik.profile.data.gateway.ProfileDbGateway
 import kz.sozdik.profile.data.gateway.ProfileRestGateway

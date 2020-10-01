@@ -1,7 +1,7 @@
 package kz.sozdik.favorites.data.api
 
 import kz.sozdik.core.models.ResponseWrapper
-import kz.sozdik.dictionary.domain.model.Word
+import kz.sozdik.dictionary.data.api.model.WordInfo
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -12,7 +12,7 @@ interface FavoriteApi {
     suspend fun loadFavorites(
         @Field("lang_from") langFrom: String,
         @Field("api_method") apiMethod: String = "user.favourites.phrase.read"
-    ): ResponseWrapper<List<Word>>
+    ): ResponseWrapper<List<WordInfo>>
 
     @FormUrlEncoded
     @POST("api/")
@@ -28,7 +28,7 @@ interface FavoriteApi {
         @Field("lang_to") langTo: String,
         @Field("phrase") phrase: String,
         @Field("api_method") apiMethod: String = "user.favourites.phrase.create"
-    ): ResponseWrapper<Word>
+    ): ResponseWrapper<WordInfo>
 
     @FormUrlEncoded
     @POST("api/")
@@ -38,5 +38,5 @@ interface FavoriteApi {
         @Field("phrase") phrase: String,
         @Field("strict") strict: Int = 1,
         @Field("api_method") apiMethod: String = "user.favourites.phrase.delete"
-    ): ResponseWrapper<Word>
+    ): ResponseWrapper<WordInfo>
 }

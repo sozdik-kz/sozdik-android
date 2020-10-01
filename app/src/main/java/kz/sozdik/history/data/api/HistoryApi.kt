@@ -1,7 +1,7 @@
 package kz.sozdik.history.data.api
 
 import kz.sozdik.core.models.ResponseWrapper
-import kz.sozdik.dictionary.domain.model.Word
+import kz.sozdik.dictionary.data.api.model.WordInfo
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -11,7 +11,7 @@ interface HistoryApi {
     @POST("api/")
     suspend fun loadHistory(
         @Field("api_method") apiMethod: String = "user.history.read"
-    ): ResponseWrapper<List<Word>>
+    ): ResponseWrapper<List<WordInfo>>
 
     @FormUrlEncoded
     @POST("api/")

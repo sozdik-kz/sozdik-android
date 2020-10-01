@@ -126,7 +126,7 @@ class DictionaryFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val wordToDisplay = arguments?.getSerializable(ARGUMENT_WORD) as? Word
+        val wordToDisplay = arguments?.getParcelable(ARGUMENT_WORD) as? Word
         if (wordToDisplay != null) {
             presenter.translatePhraseFromHistory(wordToDisplay)
         }
@@ -318,7 +318,7 @@ class DictionaryFragment :
         )
 
         toolbar.menu.findItem(R.id.action_play_sound).setIcon(
-            if (word.hasAudio()) {
+            if (word.hasAudio) {
                 R.drawable.ic_volume_up_white_24dp
             } else {
                 R.drawable.ic_volume_up_gray_24dp
@@ -376,25 +376,16 @@ class DictionaryFragment :
         }
     }
 
-    // TODO: Refactor
-    @Suppress("LoopWithTooManyJumpStatements")
-    override fun onFavoriteStateChanged(word: Word, isFavorite: Boolean) {
+    override fun onFavoriteStateChanged(word: Word) {
         val words = mainPagerAdapter.words
-        for (w in words) {
-            if (!w.isSameWord(word)) {
-                continue
-            }
-            w.favourite = if (isFavorite) 1 else 0
-            if (currentWord != null && w.isSameWord(currentWord)) {
-                val favoriteIconResId = if (isFavorite) {
-                    R.drawable.ic_star_white_24dp
-                } else {
-                    R.drawable.ic_star_border_white_24dp
-                }
-                toolbar.menu.findItem(R.id.action_favorite)?.setIcon(favoriteIconResId)
-            }
-            break
+        val index = words.indexOf(word)
+        words[index] = word
+        val favoriteIconResId = if (word.isFavorite) {
+            R.drawable.ic_star_white_24dp
+        } else {
+            R.drawable.ic_star_border_white_24dp
         }
+        toolbar.menu.findItem(R.id.action_favorite)?.setIcon(favoriteIconResId)
     }
 
     // TODO Refactor strings localization
@@ -402,7 +393,7 @@ class DictionaryFragment :
         val language = if (Lang.isKazakh(word.langTo)) "казахском" else "русском"
         val text =
             """
-            "${word.phrase}" на $language будет ${word.urlShort}. С помощью @sozdik для Android
+            "${word.phrase}" на $language будет ${word.shortUrl}. С помощью @sozdik для Android
             """.trimIndent()
         val shareIntent = Intent(Intent.ACTION_SEND)
             .setType(TEXT_PLAIN_TYPE)
@@ -483,7 +474,7 @@ class DictionaryFragment :
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
-                positionOffsetPixels: Int
+                positionOffsetPixels: Int,
             ) = Unit
 
             override fun onPageSelected(position: Int) {

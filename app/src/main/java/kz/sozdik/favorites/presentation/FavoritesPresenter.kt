@@ -55,7 +55,7 @@ class FavoritesPresenter @Inject constructor(
         wordToUnfavorite?.let {
             launch {
                 try {
-                    val word = favoritesInteractor.deletePhraseFromFavorites(it)
+                    favoritesInteractor.inverseFavoritesPhrase(it)
                     fetchFavorites()
                 } catch (t: Throwable) {
                     viewState.showLoadingProgress(false)

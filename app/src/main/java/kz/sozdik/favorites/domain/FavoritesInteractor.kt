@@ -16,9 +16,6 @@ class FavoritesInteractor @Inject constructor(
     suspend fun clearFavorites(langFrom: String) =
         favoritesRepository.clearFavorites(langFrom)
 
-    suspend fun createFavoritesPhrase(word: Word): Word =
-        favoritesRepository.createFavoritePhrase(word)
-
-    suspend fun deletePhraseFromFavorites(word: Word): Word =
-        favoritesRepository.deleteFavoritePhrase(word)
+    suspend fun inverseFavoritesPhrase(word: Word): Word =
+        favoritesRepository.inverseFavorite(word)
 }

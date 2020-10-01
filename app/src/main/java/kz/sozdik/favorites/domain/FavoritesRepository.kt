@@ -9,7 +9,5 @@ interface FavoritesRepository {
 
     suspend fun clearFavorites(langFrom: String)
 
-    suspend fun createFavoritePhrase(word: Word): Word
-
-    suspend fun deleteFavoritePhrase(word: Word): Word
+    suspend fun inverseFavorite(word: Word): Word
 }

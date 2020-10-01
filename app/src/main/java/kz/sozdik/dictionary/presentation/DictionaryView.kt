@@ -56,7 +56,7 @@ interface DictionaryView : MvpView {
 
     fun switchTheme(isNightMode: Boolean)
 
-    fun onFavoriteStateChanged(word: Word, isFavorite: Boolean)
+    fun onFavoriteStateChanged(word: Word)
 
     fun showShareScreen(word: Word)
 

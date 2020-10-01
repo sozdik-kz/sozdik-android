@@ -1,8 +1,10 @@
 package kz.sozdik.history.data
 
-import kz.sozdik.core.db.dao.WordDao
+import kz.sozdik.dictionary.data.db.WordDao
 import kz.sozdik.core.network.provider.TokenProvider
 import kz.sozdik.core.utils.Lang
+import kz.sozdik.dictionary.data.api.model.toWordDto
+import kz.sozdik.dictionary.data.db.model.toWord
 import kz.sozdik.dictionary.domain.model.Word
 import kz.sozdik.history.data.api.HistoryApi
 import kz.sozdik.history.domain.HistoryRepository
@@ -16,8 +18,8 @@ class HistoryRepositoryImpl @Inject constructor(
 
     override suspend fun getHistory(langFrom: String): List<Word> {
         if (tokenProvider.token != null) {
-            val words = historyApi.loadHistory().data
-            wordDao.insert(words)
+            val wordDtoList = historyApi.loadHistory().data.map { it.toWordDto() }
+            wordDao.insert(wordDtoList)
         }
         return getLocalHistory(langFrom)
     }
@@ -27,7 +29,7 @@ class HistoryRepositoryImpl @Inject constructor(
             wordDao.getKazakhWords()
         } else {
             wordDao.getRussianWords()
-        }
+        }.map { it.toWord() }
 
     override suspend fun getWordsCount(): Int = wordDao.wordsCount()
 

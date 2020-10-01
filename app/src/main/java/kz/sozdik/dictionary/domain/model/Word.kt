@@ -1,54 +1,43 @@
 package kz.sozdik.dictionary.domain.model
 
-import androidx.room.Entity
+import android.os.Parcelable
+import kotlinx.android.parcel.IgnoredOnParcel
+import kotlinx.android.parcel.Parcelize
 import org.jsoup.Jsoup
-import java.io.Serializable
 
 private const val HREF_LEADING = "<a href=\"/dictionary/translate"
 private const val HREF_TRAILING = "</a>"
 private const val ABBR_TAG = "<abbr>син.</abbr> "
 private const val HREF_REGEXP = "(<a>)(.*?)(</a>)"
 
-@Entity(tableName = "words", primaryKeys = ["phrase", "langFrom"])
-class Word(
-    var phrase: String,
-    var langFrom: String,
-    var langTo: String,
-    var translatedAt: Long
-) : Serializable {
+@Parcelize
+data class Word(
+    val phrase: String,
+    val langFrom: String,
+    val langTo: String,
+    val phraseAcute: String?,
+    val phraseIpa: String?,
+    val translation: String?,
+    val isFavorite: Boolean,
+    val audioHash: String?,
+    val shortUrl: String?,
+    val similarPhrases: List<String>?,
+    val synonyms: List<String>?,
+) : Parcelable {
+    @IgnoredOnParcel
+    val isRight: Boolean = !translation.isNullOrEmpty()
 
-    var phraseAcute: String? = null
+    @IgnoredOnParcel
+    val hasAudio: Boolean = !audioHash.isNullOrEmpty()
 
-    var phraseIpa: String? = null
+    @IgnoredOnParcel
+    val translateAsText: String = Jsoup.parse(translation).text()
 
-    var translation: String? = null
-
-    var favourite: Int = 0
-
-    var audioHash: String? = null
-
-    var urlShort: String? = null
-
-    var similarPhrases: List<String>? = null
-
-    var synonyms: List<String>? = null
-
-    val translateAsText: String
-        get() = Jsoup.parse(translation).text()
-
+    @IgnoredOnParcel
     val similarPhrasesAsHtml: String
         get() {
             return similarPhrases?.joinToString { getHref(it) }.orEmpty()
         }
-
-    val isFavorite: Boolean
-        get() = favourite == 1
-
-    // TODO: Should be used only in presentation layer
-    val isRight: Boolean
-        get() = !translation.isNullOrEmpty()
-
-    fun hasAudio(): Boolean = !audioHash.isNullOrEmpty()
 
     fun getFormattedTranslation(): String? {
         val stringBuilder = StringBuilder()
@@ -70,10 +59,13 @@ class Word(
         return stringBuilder.toString()
     }
 
-    override fun toString(): String = phrase
-
-    fun isSameWord(w: Word?): Boolean =
-        w != null && phrase == w.phrase && langFrom == w.langFrom && langTo == w.langTo
+    override fun equals(other: Any?): Boolean {
+        val otherWord = other as? Word
+        return otherWord != null &&
+            phrase == otherWord.phrase &&
+            langFrom == otherWord.langFrom &&
+            langTo == otherWord.langTo
+    }
 
     private fun getHref(phrase: String): String =
         """$HREF_LEADING/$langFrom/$langTo/$phrase">$phrase$HREF_TRAILING"""
