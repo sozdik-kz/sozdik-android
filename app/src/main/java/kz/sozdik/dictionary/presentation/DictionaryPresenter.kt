@@ -5,7 +5,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kz.sozdik.R
 import kz.sozdik.base.BaseMvpPresenter
-import kz.sozdik.core.exceptions.NoNetworkException
 import kz.sozdik.core.system.PrefsManager
 import kz.sozdik.core.system.ResourceManager
 import kz.sozdik.core.utils.Lang
@@ -19,7 +18,6 @@ import kz.sozdik.favorites.domain.FavoritesInteractor
 import kz.sozdik.main.KeyboardState
 import kz.sozdik.main.KeyboardState.CLOSED
 import kz.sozdik.main.KeyboardState.OPEN
-import kz.sozdik.presentation.utils.DebugUtils
 import kz.sozdik.presentation.utils.ErrorMessageFactory
 import kz.sozdik.presentation.utils.PhraseUtils
 import kz.sozdik.widgets.KazCharsView
@@ -27,6 +25,7 @@ import moxy.InjectViewState
 import timber.log.Timber
 import java.io.UnsupportedEncodingException
 import java.net.URLDecoder
+import java.net.UnknownHostException
 import java.util.Locale
 import javax.inject.Inject
 
@@ -126,16 +125,16 @@ class DictionaryPresenter @Inject constructor(
                         viewState.showTranslationView(true)
                     }
                 }
-            } catch (t: Throwable) {
+            } catch (e: Throwable) {
+                Timber.e(e, "Unable to translate phrase")
                 isTranslateFromHistory = false
                 isTranslateRunning = false
                 viewState.showLoadingProgress(false)
-                when (t) {
-                    is NoNetworkException -> {
+                when (e) {
+                    is UnknownHostException -> {
                         viewState.showNoNetworkError()
                         viewState.showTranslationView(true)
                     }
-                    else -> DebugUtils.showDebugErrorMessage(t)
                 }
                 toggleEmptyView()
             }
@@ -165,10 +164,10 @@ class DictionaryPresenter @Inject constructor(
                 viewState.showLoadingProgress(false)
                 viewState.showTranslationView(false)
             } catch (e: Throwable) {
+                Timber.e(e, "Unable to load suggestions")
                 viewState.showLoadingProgress(false)
                 when (e) {
-                    is NoNetworkException -> viewState.showNoNetworkError()
-                    else -> DebugUtils.showDebugErrorMessage(e)
+                    is UnknownHostException -> viewState.showNoNetworkError()
                 }
             }
         }
