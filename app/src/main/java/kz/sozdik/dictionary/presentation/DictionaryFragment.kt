@@ -435,7 +435,10 @@ class DictionaryFragment :
             if (!request.isSuccessful) return@addOnCompleteListener
 
             val reviewInfo = request.result
-            manager.launchReviewFlow(requireActivity(), reviewInfo)
+            activity?.let {
+                if (!isResumed) return@let
+                manager.launchReviewFlow(it, reviewInfo)
+            }
         }
     }
 
