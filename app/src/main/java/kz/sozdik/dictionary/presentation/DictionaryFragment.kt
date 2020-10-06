@@ -25,6 +25,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.viewpager.widget.ViewPager
+import com.google.android.play.core.review.ReviewManagerFactory
 import kotlinx.android.synthetic.main.fragment_dictionary.*
 import kz.sozdik.R
 import kz.sozdik.core.system.PrefsManager
@@ -425,6 +426,17 @@ class DictionaryFragment :
 
     override fun setKazakhCharsType(type: KazCharsView.Type) {
         kazCharsView.type = type
+    }
+
+    override fun showInAppReview() {
+        val manager = ReviewManagerFactory.create(requireContext())
+        val reviewRequest = manager.requestReviewFlow()
+        reviewRequest.addOnCompleteListener { request ->
+            if (!request.isSuccessful) return@addOnCompleteListener
+
+            val reviewInfo = request.result
+            manager.launchReviewFlow(requireActivity(), reviewInfo)
+        }
     }
 
     private fun setTranslationContent(word: Word?, webView: WebView) {
