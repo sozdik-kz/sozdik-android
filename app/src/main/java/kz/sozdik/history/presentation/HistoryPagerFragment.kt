@@ -13,8 +13,7 @@ import kz.sozdik.base.SectionsPagerAdapter
 
 class HistoryPagerFragment : Fragment(R.layout.fragment_pager) {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private val adapter by lazy {
         val fragmentItems = listOf(
             FragmentItem(
                 HistoryListFragment.create(Lang.KAZAKH_CYRILLIC),
@@ -25,8 +24,11 @@ class HistoryPagerFragment : Fragment(R.layout.fragment_pager) {
                 getString(R.string.tab_from_rus)
             )
         )
-        val adapter = SectionsPagerAdapter(fragmentItems, childFragmentManager)
+        SectionsPagerAdapter(fragmentItems, childFragmentManager)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         with(toolbar) {
             setTitle(R.string.tab_history)
             inflateMenu(R.menu.menu_history)
@@ -38,5 +40,10 @@ class HistoryPagerFragment : Fragment(R.layout.fragment_pager) {
         }
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewPager.adapter = null
     }
 }
