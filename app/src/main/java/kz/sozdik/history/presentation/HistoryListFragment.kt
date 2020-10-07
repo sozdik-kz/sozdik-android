@@ -5,12 +5,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
-import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_history.historyRecyclerView
-import kotlinx.android.synthetic.main.fragment_history.viewEmpty
-import kotlinx.android.synthetic.main.view_loading.viewLoading
+import kotlinx.android.synthetic.main.fragment_history.*
+import kotlinx.android.synthetic.main.view_loading.*
 import kz.sozdik.R
 import kz.sozdik.core.utils.Lang
 import kz.sozdik.di.getAppDepsProvider
@@ -53,7 +51,6 @@ class HistoryListFragment :
             .getHistoryPresenter()
     }
 
-    private var clearWordsDialog: DialogFragment? = null
     private val wordHandler by lazy { parentFragment?.parentFragment as WordHandler }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -65,11 +62,6 @@ class HistoryListFragment :
         historyRecyclerView.addItemDecoration(dividerItemDecoration)
 
         presenter.fetchHistory()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        clearWordsDialog?.dismiss()
     }
 
     override fun onDialogPositiveClick(requestCode: Int) {
@@ -108,21 +100,23 @@ class HistoryListFragment :
     }
 
     override fun showClearHistoryDialog() {
-        clearWordsDialog = TwoButtonDialogFragment.create(
-            getString(R.string.removing),
-            getString(R.string.history_question_removing),
-            RC_CLEAR_HISTORY
-        )
-        clearWordsDialog?.show(childFragmentManager, "TwoButtonDialogFragment")
+        TwoButtonDialogFragment
+            .create(
+                getString(R.string.removing),
+                getString(R.string.history_question_removing),
+                RC_CLEAR_HISTORY
+            )
+            .show(childFragmentManager, "TwoButtonDialogFragment")
     }
 
     override fun showDeleteWordDialog() {
-        clearWordsDialog = TwoButtonDialogFragment.create(
-            getString(R.string.removing),
-            getString(R.string.history_question_word_removing),
-            RC_REMOVE_WORD
-        )
-        clearWordsDialog?.show(childFragmentManager, "DeleteWordDialogFragment")
+        TwoButtonDialogFragment
+            .create(
+                getString(R.string.removing),
+                getString(R.string.history_question_word_removing),
+                RC_REMOVE_WORD
+            )
+            .show(childFragmentManager, "DeleteWordDialogFragment")
     }
 
     override fun resetHistoryList() {

@@ -100,21 +100,23 @@ class FavoriteListFragment :
     }
 
     override fun showClearFavoriteWordsDialog() {
-        clearWordsDialog = TwoButtonDialogFragment.create(
-            getString(R.string.removing),
-            getString(R.string.favorites_question_removing),
-            RC_CLEAR_FAVORITES
-        )
-        clearWordsDialog?.show(childFragmentManager, "TwoButtonDialogFragment")
+        TwoButtonDialogFragment
+            .create(
+                getString(R.string.removing),
+                getString(R.string.favorites_question_removing),
+                RC_CLEAR_FAVORITES
+            )
+            .show(childFragmentManager, "TwoButtonDialogFragment")
     }
 
     override fun showUnfavoriteWordDialog() {
-        clearWordsDialog = TwoButtonDialogFragment.create(
-            getString(R.string.removing),
-            getString(R.string.favorites_question_word_removing),
-            RC_REMOVE_WORD_FROM_FAVORITES
-        )
-        clearWordsDialog?.show(childFragmentManager, "DeleteWordDialogFragment")
+        TwoButtonDialogFragment
+            .create(
+                getString(R.string.removing),
+                getString(R.string.favorites_question_word_removing),
+                RC_REMOVE_WORD_FROM_FAVORITES
+            )
+            .show(childFragmentManager, "DeleteWordDialogFragment")
     }
 
     override fun resetFavoritesList() {

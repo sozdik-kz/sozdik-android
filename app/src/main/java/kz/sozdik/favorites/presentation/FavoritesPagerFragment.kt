@@ -3,18 +3,15 @@ package kz.sozdik.favorites.presentation
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_pager.tabLayout
-import kotlinx.android.synthetic.main.fragment_pager.toolbar
-import kotlinx.android.synthetic.main.fragment_pager.viewPager
+import kotlinx.android.synthetic.main.fragment_pager.*
 import kz.sozdik.R
-import kz.sozdik.core.utils.Lang
 import kz.sozdik.base.FragmentItem
 import kz.sozdik.base.SectionsPagerAdapter
+import kz.sozdik.core.utils.Lang
 
 class FavoritesPagerFragment : Fragment(R.layout.fragment_pager) {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private val adapter by lazy {
         val fragmentItems = listOf(
             FragmentItem(
                 FavoriteListFragment.create(Lang.KAZAKH_CYRILLIC),
@@ -25,8 +22,11 @@ class FavoritesPagerFragment : Fragment(R.layout.fragment_pager) {
                 getString(R.string.tab_from_rus)
             )
         )
-        val adapter = SectionsPagerAdapter(fragmentItems, childFragmentManager)
+        SectionsPagerAdapter(fragmentItems, childFragmentManager)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         with(toolbar) {
             setTitle(R.string.tab_favorites)
             inflateMenu(R.menu.menu_favorites)
@@ -38,5 +38,10 @@ class FavoritesPagerFragment : Fragment(R.layout.fragment_pager) {
         }
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewPager.adapter = null
     }
 }
