@@ -13,13 +13,14 @@ apply from: "$project.rootDir/scripts/signing.gradle"
 
 android {
     compileSdkVersion 30
+    ndkVersion "21.3.6528147"
 
     defaultConfig {
         applicationId "kz.sozdik.free"
         minSdkVersion 21
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 20201007
+        versionCode 20201115
         versionName "3.5"
         multiDexEnabled true
         signingConfig signingConfigs.release

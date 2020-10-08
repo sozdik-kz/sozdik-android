@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  publishRelease:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Publish release
+        run: |
+          echo "${{ secrets.KEYSTORE_FILE }}" | base64 -d > keystore.jks
+          echo "keystorePath=$GITHUB_WORKSPACE/keystore.jks" > signing.properties
+          echo "keystorePassword=${{ secrets.KEYSTORE_PASSWORD }}" >> signing.properties
+          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> signing.properties
+          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> signing.properties
+          echo "sozdikApiClientName=${{ secrets.SOZDIK_API_CLIENT_NAME }}" > credentials.properties
+          echo "sozdikApiKey=${{ secrets.SOZDIK_API_KEY }}" > credentials.properties
+          echo '${{ secrets.GOOGLE_CREDENTIALS }}' > app/google-credentials.json
+          ./gradlew --info --no-daemon -g gradle-user-home publishReleaseBundle
