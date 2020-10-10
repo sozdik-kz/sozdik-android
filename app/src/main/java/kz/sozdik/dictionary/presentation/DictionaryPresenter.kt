@@ -15,7 +15,6 @@ import kz.sozdik.dictionary.domain.model.SuggestionsResult.WrongPhrase
 import kz.sozdik.dictionary.domain.model.TranslatePhraseResult
 import kz.sozdik.dictionary.domain.model.Word
 import kz.sozdik.favorites.domain.FavoritesInteractor
-import kz.sozdik.history.domain.HistoryInteractor
 import kz.sozdik.main.KeyboardState
 import kz.sozdik.main.KeyboardState.CLOSED
 import kz.sozdik.main.KeyboardState.OPEN
@@ -38,11 +37,12 @@ private const val VIBRATION_DURATION_MS = 25L
 
 private const val SUGGESTIONS_LOADING_DELAY_IN_MILLIS = 250L
 
+private const val SHOW_IN_APP_REVIEW_THRESHOLD = 10
+
 @InjectViewState
 class DictionaryPresenter @Inject constructor(
     private val dictionaryInteractor: DictionaryInteractor,
     private val favoritesInteractor: FavoritesInteractor,
-    private val historyInteractor: HistoryInteractor,
     private val resourceManager: ResourceManager,
     private val prefsManager: PrefsManager
 ) : BaseMvpPresenter<DictionaryView>() {
@@ -53,8 +53,8 @@ class DictionaryPresenter @Inject constructor(
     // TODO: Avoid isTranslateFromHistory variable
     // This variable need only for proper show/hide empty view
     private var isTranslateFromHistory = false
-    private var isInAppReviewShown = false
     private var isTranslateRunning = false
+    private var translatedWordInCurrentSession = 0
     private var langFrom = Lang.RUSSIAN
     private var langTo = Lang.KAZAKH_CYRILLIC
     private var currentPhrase = ""
@@ -121,9 +121,8 @@ class DictionaryPresenter @Inject constructor(
                         viewState.showTranslationCourse(result.word.langFrom)
                         viewState.showWord(result.word)
                         viewState.collapseSearchView()
-                        if (!isInAppReviewShown && historyInteractor.getWordsCount() > 10) {
+                        if (++translatedWordInCurrentSession == SHOW_IN_APP_REVIEW_THRESHOLD) {
                             viewState.showInAppReview()
-                            isInAppReviewShown = true
                         }
                     }
                     TranslatePhraseResult.WrongPhrase -> {
