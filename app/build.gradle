@@ -22,7 +22,7 @@ android {
         minSdkVersion 21
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 20201115
+        versionCode 20201116
         versionName "3.5"
         multiDexEnabled true
         signingConfig signingConfigs.release
