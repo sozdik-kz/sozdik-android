@@ -73,6 +73,8 @@ android {
     }
 }
 play {
+    track = 'production'
+    releaseStatus = ReleaseStatus.DRAFT
     serviceAccountCredentials = file("google-credentials.json")
 }
 
