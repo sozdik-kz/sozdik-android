@@ -77,6 +77,7 @@ android {
 play {
     track = 'production'
     releaseStatus = ReleaseStatus.DRAFT
+    releaseName = "3.5-test"
     serviceAccountCredentials = file("google-credentials.json")
 }
 
