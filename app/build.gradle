@@ -20,8 +20,8 @@ android {
         minSdkVersion 21
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 20201115
-        versionName "3.5"
+        versionCode 20201116
+        versionName "3.5-test"
         multiDexEnabled true
         signingConfig signingConfigs.release
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -73,6 +73,8 @@ android {
     }
 }
 play {
+    track = 'production'
+    releaseStatus = ReleaseStatus.DRAFT
     serviceAccountCredentials = file("google-credentials.json")
 }
 
