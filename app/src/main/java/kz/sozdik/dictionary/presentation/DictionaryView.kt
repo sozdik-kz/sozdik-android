@@ -67,4 +67,6 @@ interface DictionaryView : MvpView {
     fun vibrate(milliseconds: Long)
 
     fun setKazakhCharsType(type: KazCharsView.Type)
+
+    fun showInAppReview()
 }

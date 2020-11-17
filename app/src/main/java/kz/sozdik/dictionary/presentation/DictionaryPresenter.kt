@@ -37,6 +37,8 @@ private const val VIBRATION_DURATION_MS = 25L
 
 private const val SUGGESTIONS_LOADING_DELAY_IN_MILLIS = 250L
 
+private const val SHOW_IN_APP_REVIEW_THRESHOLD = 10
+
 @InjectViewState
 class DictionaryPresenter @Inject constructor(
     private val dictionaryInteractor: DictionaryInteractor,
@@ -51,8 +53,8 @@ class DictionaryPresenter @Inject constructor(
     // TODO: Avoid isTranslateFromHistory variable
     // This variable need only for proper show/hide empty view
     private var isTranslateFromHistory = false
-
     private var isTranslateRunning = false
+    private var translatedWordInCurrentSession = 0
     private var langFrom = Lang.RUSSIAN
     private var langTo = Lang.KAZAKH_CYRILLIC
     private var currentPhrase = ""
@@ -119,6 +121,9 @@ class DictionaryPresenter @Inject constructor(
                         viewState.showTranslationCourse(result.word.langFrom)
                         viewState.showWord(result.word)
                         viewState.collapseSearchView()
+                        if (++translatedWordInCurrentSession == SHOW_IN_APP_REVIEW_THRESHOLD) {
+                            viewState.showInAppReview()
+                        }
                     }
                     TranslatePhraseResult.WrongPhrase -> {
                         viewState.showNoNetworkError()
