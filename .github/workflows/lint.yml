@@ -1,0 +1,16 @@
+name: Ktlint
+
+on:
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  ktlint:
+    name: Lint code base
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run ktlint
+        run: |
+          ./gradlew ktlint -PautoCorrect=0
