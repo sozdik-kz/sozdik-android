@@ -14,11 +14,10 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import androidx.preference.SwitchPreferenceCompat
-import kotlinx.android.synthetic.main.fragment_settings.toolbar
+import kotlinx.android.synthetic.main.fragment_settings.*
 import kz.sozdik.R
-import kz.sozdik.core.services.ClipboardService
 import kz.sozdik.base.BaseActivity
-import kz.sozdik.presentation.utils.popScreen
+import kz.sozdik.core.services.ClipboardService
 
 private const val DRAW_OVERLAYS_SETTINGS_REQUEST_CODE = 1
 
@@ -48,7 +47,7 @@ class SettingsFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        toolbar.setNavigationOnClickListener { popScreen() }
+        toolbar.setNavigationOnClickListener { activity?.onBackPressed() }
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {

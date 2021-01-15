@@ -22,7 +22,6 @@ import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.fragment_login.*
 import kz.sozdik.R
 import kz.sozdik.di.getAppDepsProvider
-import kz.sozdik.presentation.utils.popScreen
 import kz.sozdik.presentation.utils.showToast
 import kz.sozdik.register.di.DaggerRegistrationPresenterComponent
 import moxy.MvpAppCompatFragment
@@ -62,7 +61,7 @@ class LoginFragment :
         initFacebook()
         firebaseAuth = FirebaseAuth.getInstance()
 
-        toolbar.setNavigationOnClickListener { popScreen() }
+        toolbar.setNavigationOnClickListener { activity?.onBackPressed() }
 
         loginButton.setOnClickListener {
             presenter.login(

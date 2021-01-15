@@ -8,7 +8,6 @@ import kotlinx.android.synthetic.main.fragment_code_confirmation.*
 import kz.sozdik.R
 import kz.sozdik.di.getAppDepsProvider
 import kz.sozdik.main.MainFragment
-import kz.sozdik.presentation.utils.popScreen
 import kz.sozdik.presentation.utils.popScreenTo
 import kz.sozdik.presentation.utils.showToast
 import kz.sozdik.register.di.DaggerCodeConfirmationPresenterComponent
@@ -49,7 +48,7 @@ class CodeConfirmationFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        toolbar.setNavigationOnClickListener { popScreen() }
+        toolbar.setNavigationOnClickListener { activity?.onBackPressed() }
         emailTextView.text = arguments?.getString(ARG_EMAIL)
         confirmButton.setOnClickListener {
             presenter.confirmRegistration(codeEditText.text.toString())

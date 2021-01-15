@@ -64,24 +64,6 @@ fun FragmentActivity.replaceFragment(
     }
 }
 
-private const val PREVIOUS_FRAGMENT_TAG_ARG = "PREVIOUS_FRAGMENT_TAG_ARG"
-
-private fun Fragment.getPreviousTag(): String? = arguments?.getString(PREVIOUS_FRAGMENT_TAG_ARG)
-fun Fragment.getCurrentScreen(): Fragment? = childFragmentManager.findFragmentById(R.id.fragmentContainer)
-
-fun Fragment.popScreen() {
-    requireActivity().hideKeyboard()
-
-    val previousTag = getCurrentScreen()?.getPreviousTag()
-    val fragmentManager = parentFragment?.childFragmentManager ?: childFragmentManager
-
-    when {
-        previousTag != null -> popScreenTo(previousTag, true)
-        fragmentManager.backStackEntryCount < 2 -> requireActivity().popFragment()
-        else -> fragmentManager.popBackStackImmediate()
-    }
-}
-
 fun FragmentActivity.popFragment(): Boolean {
     hideKeyboard()
     return when {
@@ -89,20 +71,6 @@ fun FragmentActivity.popFragment(): Boolean {
             false
         }
         else -> supportFragmentManager.popBackStackImmediate()
-    }
-}
-
-private fun Fragment.popScreenTo(tag: String, inclusive: Boolean = false) {
-    val flag = if (inclusive) FragmentManager.POP_BACK_STACK_INCLUSIVE else 0
-
-    requireActivity().hideKeyboard()
-
-    if (childFragmentManager.backStackEntryCount == 0 ||
-        childFragmentManager.getBackStackEntryAt(0).name == tag && inclusive
-    ) {
-        requireActivity().popFragment()
-    } else {
-        if (!childFragmentManager.popBackStackImmediate(tag, flag)) requireActivity().popFragment()
     }
 }
 

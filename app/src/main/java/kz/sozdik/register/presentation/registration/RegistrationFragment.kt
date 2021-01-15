@@ -30,7 +30,6 @@ import kz.sozdik.R
 import kz.sozdik.di.getAppDepsProvider
 import kz.sozdik.login.presentation.LoginFragment
 import kz.sozdik.presentation.utils.openInChromeTab
-import kz.sozdik.presentation.utils.popScreen
 import kz.sozdik.presentation.utils.replaceFragment
 import kz.sozdik.presentation.utils.showToast
 import kz.sozdik.register.di.DaggerRegistrationPresenterComponent
@@ -74,7 +73,7 @@ class RegistrationFragment :
         }
 
         with(toolbar) {
-            setNavigationOnClickListener { popScreen() }
+            setNavigationOnClickListener { activity?.onBackPressed() }
             inflateMenu(R.menu.menu_registration)
             setOnMenuItemClickListener {
                 InfoDialogFragment().show(childFragmentManager, "InfoDialogFragment")
@@ -137,8 +136,8 @@ class RegistrationFragment :
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
-                REQUEST_CODE_CONFIRM -> popScreen()
-                REQUEST_CODE_LOGIN -> popScreen()
+                REQUEST_CODE_CONFIRM -> activity?.onBackPressed()
+                REQUEST_CODE_LOGIN -> activity?.onBackPressed()
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
