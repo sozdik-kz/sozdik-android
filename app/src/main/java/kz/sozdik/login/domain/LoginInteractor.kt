@@ -32,7 +32,7 @@ class LoginInteractor @Inject constructor(
     private suspend fun handleLoginResult(loginResult: LoginResult) {
         if (loginResult is LoginResult.Token) {
             historyInteractor.clearAllWordsLocally()
-            tokenProvider.token = loginResult.token
+            tokenProvider.setToken(loginResult.token)
             profileInteractor.loadProfile()
         }
     }

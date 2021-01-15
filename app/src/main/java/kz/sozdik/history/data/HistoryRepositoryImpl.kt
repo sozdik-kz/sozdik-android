@@ -17,7 +17,7 @@ class HistoryRepositoryImpl @Inject constructor(
 ) : HistoryRepository {
 
     override suspend fun getHistory(langFrom: String): List<Word> {
-        if (tokenProvider.token != null) {
+        if (tokenProvider.getToken() != null) {
             val wordDtoList = historyApi.loadHistory().data.map { it.toWordDto() }
             wordDao.insert(wordDtoList)
         }

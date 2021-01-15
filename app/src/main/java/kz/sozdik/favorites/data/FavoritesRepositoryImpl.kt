@@ -72,5 +72,5 @@ class FavoritesRepositoryImpl @Inject constructor(
         }
     }
 
-    private fun isAuthorized(): Boolean = tokenProvider.token != null
+    private fun isAuthorized(): Boolean = tokenProvider.getToken() != null
 }

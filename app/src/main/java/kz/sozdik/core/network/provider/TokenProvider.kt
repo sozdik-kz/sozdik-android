@@ -10,14 +10,13 @@ private const val KEY_SESSION_TOKEN = "KEY_SESSION_TOKEN"
 class TokenProvider @Inject constructor(
     private val sharedPreferences: SharedPreferences,
 ) {
-
-    var token: String? = runBlocking { sharedPreferences.getString(KEY_SESSION_TOKEN, null) }
-        set(value) {
-            field = value
-            runBlocking {
-                sharedPreferences.edit(commit = true) {
-                    putString(KEY_SESSION_TOKEN, value)
-                }
+    fun setToken(token: String?) {
+        runBlocking {
+            sharedPreferences.edit(commit = true) {
+                putString(KEY_SESSION_TOKEN, token)
             }
         }
+    }
+
+    fun getToken(): String? = runBlocking { sharedPreferences.getString(KEY_SESSION_TOKEN, null) }
 }

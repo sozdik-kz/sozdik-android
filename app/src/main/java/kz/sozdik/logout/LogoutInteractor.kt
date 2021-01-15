@@ -23,6 +23,6 @@ class LogoutInteractor @Inject constructor(
             FirebaseInstanceId.getInstance()
                 .deleteToken(FCM_SENDER_ID, FirebaseMessaging.INSTANCE_ID_SCOPE)
         }
-        tokenProvider.token = null
+        tokenProvider.setToken(null)
     }
 }

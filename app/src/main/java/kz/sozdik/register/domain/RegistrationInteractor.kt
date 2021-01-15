@@ -24,7 +24,7 @@ class RegistrationInteractor @Inject constructor(
     suspend fun confirmCode(code: String, confirmationToken: String): ConfirmationCodeResult {
         val result = registerRemoteGateway.confirmCode(code, confirmationToken)
         if (result is ConfirmationCodeResult.Token) {
-            tokenProvider.token = result.authToken
+            tokenProvider.setToken(result.authToken)
             profileInteractor.loadProfile()
         }
         return result

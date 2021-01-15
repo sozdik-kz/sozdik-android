@@ -86,15 +86,10 @@ fun FragmentActivity.popFragment(): Boolean {
     hideKeyboard()
     return when {
         supportFragmentManager.backStackEntryCount < 2 -> {
-            finish()
             false
         }
         else -> supportFragmentManager.popBackStackImmediate()
     }
-}
-
-fun <T : Fragment> Fragment.popScreenTo(target: KClass<T>, inclusive: Boolean = false) {
-    popScreenTo(target.java.name, inclusive)
 }
 
 private fun Fragment.popScreenTo(tag: String, inclusive: Boolean = false) {
@@ -121,18 +116,6 @@ private fun FragmentActivity.popScreenTo(tag: String, inclusive: Boolean = false
     hideKeyboard()
 
     if (!supportFragmentManager.popBackStackImmediate(tag, flag)) popFragment()
-}
-
-fun Fragment.replaceFragment(
-    fragment: Fragment,
-    tag: String = fragment::class.java.name,
-    addToBackStack: Boolean = true
-) {
-    requireActivity().hideKeyboard()
-    childFragmentManager.commit(allowStateLoss = true) {
-        replace(R.id.fragmentContainer, fragment, tag)
-        if (addToBackStack) addToBackStack(tag)
-    }
 }
 
 fun Fragment.showToast(@StringRes resId: Int) {

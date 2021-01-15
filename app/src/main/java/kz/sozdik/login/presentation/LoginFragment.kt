@@ -136,7 +136,7 @@ class LoginFragment :
 
     override fun onSuccess() {
         // TODO: Inform previous fragment about successful login
-        popScreen()
+        activity?.onBackPressed()
     }
 
     override fun onError(message: String) {

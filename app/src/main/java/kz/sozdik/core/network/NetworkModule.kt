@@ -74,7 +74,7 @@ object NetworkModule {
                     .add("client_password", BuildConfig.SOZDIK_API_KEY)
                     .add("device_id", deviceInfo.deviceId)
                     .add("client_os_version", getClientOsVersion())
-            val token = tokenProvider.token
+            val token = tokenProvider.getToken()
             if (token != null) {
                 bodyBuilder.add("auth_token", token)
             }
