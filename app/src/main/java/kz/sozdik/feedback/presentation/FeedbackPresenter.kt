@@ -23,6 +23,7 @@ class FeedbackPresenter @Inject constructor(
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
+/*
         launch {
             val profile = profileInteractor.awaitProfile()
             isEmailRequired = profile.email.isNullOrEmpty()
@@ -31,6 +32,7 @@ class FeedbackPresenter @Inject constructor(
             viewState.setEmail(profile.email)
             viewState.setName(profile.fullName)
         }
+*/
     }
 
     @Suppress("ReturnCount")
@@ -55,13 +57,11 @@ class FeedbackPresenter @Inject constructor(
 
         launch {
             try {
-                viewState.showProgressBar(true)
                 feedbackInteractor.sendFeedback(email, name, message)
                 viewState.onFeedbackCreated()
             } catch (e: Throwable) {
                 Timber.e(e, "Unable to send feedback")
                 viewState.onError(ErrorMessageFactory.create(resourceManager, e))
-                viewState.showProgressBar(false)
             }
         }
     }

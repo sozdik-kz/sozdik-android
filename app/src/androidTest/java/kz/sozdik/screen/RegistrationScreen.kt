@@ -1,11 +1,10 @@
 package kz.sozdik.screen
 
-import com.agoda.kakao.check.KCheckBox
-import com.agoda.kakao.edit.KEditText
-import com.agoda.kakao.edit.KTextInputLayout
-import com.agoda.kakao.progress.KProgressBar
-import com.agoda.kakao.text.KButton
-import com.agoda.kakao.text.KTextView
+import io.github.kakaocup.kakao.check.KCheckBox
+import io.github.kakaocup.kakao.edit.KEditText
+import io.github.kakaocup.kakao.edit.KTextInputLayout
+import io.github.kakaocup.kakao.progress.KProgressBar
+import io.github.kakaocup.kakao.text.KButton
 import kz.sozdik.R
 import kz.sozdik.register.presentation.registration.RegistrationFragment
 
@@ -26,7 +25,7 @@ object RegistrationScreen : KScreen<RegistrationScreen>() {
     val passwordEditText = KEditText { withId(R.id.passwordEditText) }
     val passwordInputLayout = KTextInputLayout { withId(R.id.passwordInputLayout) }
     val termsOfUseCheckBox = KCheckBox { withId(R.id.termsOfUseCheckBox) }
-    val termsOfUseTextView = KTextView { withId(R.id.termsOfUseTextView) }
+//    val termsOfUseTextView = KTextView { withId(R.id.termsOfUseTextView) }
     val privacyPolicyCheckBox = KCheckBox { withId(R.id.privacyPolicyCheckBox) }
-    val privacyPolicyTextView = KTextView { withId(R.id.privacyPolicyTextView) }
+//    val privacyPolicyTextView = KTextView { withId(R.id.privacyPolicyTextView) }
 }

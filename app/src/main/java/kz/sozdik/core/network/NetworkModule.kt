@@ -27,7 +27,7 @@ import java.io.IOException
 
 @Module
 object NetworkModule {
-    private const val API_VERSION = "1.02"
+    private const val API_VERSION = "1.03"
 
     @Provides
     @JvmStatic

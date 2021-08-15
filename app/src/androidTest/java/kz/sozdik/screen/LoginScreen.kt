@@ -1,9 +1,9 @@
 package kz.sozdik.screen
 
-import com.agoda.kakao.edit.KEditText
-import com.agoda.kakao.edit.KTextInputLayout
-import com.agoda.kakao.progress.KProgressBar
-import com.agoda.kakao.text.KButton
+import io.github.kakaocup.kakao.edit.KEditText
+import io.github.kakaocup.kakao.edit.KTextInputLayout
+import io.github.kakaocup.kakao.progress.KProgressBar
+import io.github.kakaocup.kakao.text.KButton
 import kz.sozdik.R
 import kz.sozdik.login.presentation.LoginFragment
 

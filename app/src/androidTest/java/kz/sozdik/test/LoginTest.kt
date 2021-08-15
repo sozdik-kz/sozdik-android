@@ -6,6 +6,7 @@ import androidx.test.rule.ActivityTestRule
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import kz.sozdik.R
 import kz.sozdik.login.presentation.LoginActivity
+import kz.sozdik.login.presentation.LoginFragment
 import kz.sozdik.screen.LoginScreen
 import kz.sozdik.views.toastWithTextIsDisplayed
 import org.junit.Rule
@@ -18,7 +19,7 @@ class LoginTest : TestCase() {
     // TODO: Fix test
 
     @get:Rule
-    val activityTestRule = ActivityTestRule(LoginActivity::class.java, true, false)
+    val activityTestRule = ActivityTestRule(LoginFragment::class.java, true, false)
 
     @Test
     fun test() {

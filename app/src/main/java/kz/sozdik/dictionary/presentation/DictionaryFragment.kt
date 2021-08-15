@@ -489,7 +489,7 @@ class DictionaryFragment :
             override fun onPageScrollStateChanged(state: Int) {
             }
         })
-        pageIndicator.setViewPager(viewPager)
+//        pageIndicator.setViewPager(viewPager)
 
         searchButton.setOnClickListener { presenter.onFabClicked() }
         hintTextView.setOnClickListener { expandSearchView() }

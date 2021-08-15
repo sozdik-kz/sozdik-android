@@ -1,5 +1,4 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
@@ -40,17 +39,19 @@
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@+id/pageIndicator" />
+                android:layout_height="match_parent" />
+            <!--android:layout_above="@+id/pageIndicator"-->
 
-            <com.viewpagerindicator.LinePageIndicator
-                android:id="@+id/pageIndicator"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                app:fillColor="@color/colorAccent" />
+            <!--
+                        <com.viewpagerindicator.LinePageIndicator
+                            android:id="@+id/pageIndicator"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            app:fillColor="@color/colorAccent" />
+            -->
 
         </RelativeLayout>
 

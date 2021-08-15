@@ -1,6 +1,6 @@
 package kz.sozdik.screen
 
-import com.agoda.kakao.navigation.KNavigationView
+import io.github.kakaocup.kakao.navigation.KNavigationView
 import kz.sozdik.R
 import kz.sozdik.main.MainActivity
 

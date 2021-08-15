@@ -1,6 +1,6 @@
 package kz.sozdik.extenssions
 
-import com.agoda.kakao.text.KButton
+import io.github.kakaocup.kakao.text.KButton
 
 fun KButton.scrollToAndClick() {
     scrollTo()

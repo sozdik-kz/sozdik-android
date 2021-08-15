@@ -6,8 +6,6 @@ interface FeedbackView : MvpView {
 
     fun onError(message: String)
 
-    fun showProgressBar(isVisible: Boolean)
-
     fun onFeedbackCreated()
 
     fun showNameError(message: String?)
