@@ -85,13 +85,20 @@ class FeedbackFragment : Fragment() {
     }
 
     @Composable
-    fun ContentComposable(sending: Boolean = false) {
+    fun ContentComposable() {
         var name by remember { mutableStateOf(TextFieldValue()) }
         var email by remember { mutableStateOf(TextFieldValue()) }
         var message by remember { mutableStateOf(TextFieldValue()) }
 
         val viewModel: FeedbackViewModel by viewModels { factory }
         val feedbackState by viewModel.feedbackState.collectAsState()
+
+        LaunchedEffect(feedbackState) {
+            when (feedbackState) {
+                FeedbackViewState.Sent -> showToast("Sent")
+                is FeedbackViewState.Error -> showToast((feedbackState as FeedbackViewState.Error).message)
+            }
+        }
 
         Column(
             modifier = Modifier
@@ -112,18 +119,13 @@ class FeedbackFragment : Fragment() {
 
             Spacer(Modifier.padding(bottom = 8.dp))
 
-            when (feedbackState) {
-                FeedbackViewState.Sent -> showToast("Sent")
-                is FeedbackViewState.Error -> showToast((feedbackState as FeedbackViewState.Error).message)
-            }
-
-            if (sending) {
+            if (feedbackState is FeedbackViewState.Loading) {
                 CircularProgressIndicator()
             } else {
                 Button(
                     onClick = {
                         viewModel.onSendClicked(name.text, email.text, message.text)
-                              },
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 16.dp)

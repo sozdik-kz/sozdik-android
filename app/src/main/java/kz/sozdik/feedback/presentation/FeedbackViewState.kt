@@ -2,6 +2,7 @@ package kz.sozdik.feedback.presentation
 
 sealed class FeedbackViewState {
     object Sent : FeedbackViewState()
+    object Initial : FeedbackViewState()
     data class Error(val message: String) : FeedbackViewState()
     object Loading : FeedbackViewState()
     object NameError : FeedbackViewState()

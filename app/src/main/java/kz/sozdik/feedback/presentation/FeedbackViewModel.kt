@@ -21,7 +21,7 @@ class FeedbackViewModel @Inject constructor(
 
     private var isEmailRequired = true
 
-    private val mutableFeedbackState = MutableStateFlow<FeedbackViewState>(FeedbackViewState.Loading)
+    private val mutableFeedbackState = MutableStateFlow<FeedbackViewState>(FeedbackViewState.Initial)
     val feedbackState: StateFlow<FeedbackViewState>
         get() = mutableFeedbackState
 
@@ -43,6 +43,7 @@ class FeedbackViewModel @Inject constructor(
     }
 
     private fun sendFeedBack(email: String, name: String, message: String) {
+        mutableFeedbackState.value = FeedbackViewState.Loading
         viewModelScope.launch {
             try {
                 feedbackInteractor.sendFeedback(email, name, message)
