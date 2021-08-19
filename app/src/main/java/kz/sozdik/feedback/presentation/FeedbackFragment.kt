@@ -1,6 +1,8 @@
 package kz.sozdik.feedback.presentation
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,30 +24,35 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy.DisposeOnLifecycleDestroyed
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import javax.inject.Inject
 import kz.sozdik.R
+import kz.sozdik.core.system.ViewModelFactory
 import kz.sozdik.di.getAppDepsProvider
-import kz.sozdik.feedback.di.DaggerFeedbackPresenterComponent
+import kz.sozdik.feedback.di.DaggerFeedbackComponent
 import kz.sozdik.presentation.utils.showToast
 import moxy.MvpAppCompatFragment
-import moxy.presenter.InjectPresenter
-import moxy.presenter.ProvidePresenter
 
-class FeedbackFragment : MvpAppCompatFragment(), FeedbackView {
+class FeedbackFragment : Fragment() {
 
     companion object {
         fun create() = FeedbackFragment()
     }
 
-    @InjectPresenter
-    lateinit var feedbackPresenter: FeedbackPresenter
+    @Inject
+    lateinit var factory: ViewModelFactory<FeedbackViewModel>
 
-    @ProvidePresenter
-    internal fun providePresenter(): FeedbackPresenter =
-        DaggerFeedbackPresenterComponent.builder()
+    override fun onAttach(context: Context) {
+        DaggerFeedbackComponent.builder()
             .appDependency(requireContext().getAppDepsProvider())
             .build()
-            .getFeedbackPresenter()
+            .inject(this)
+
+        super.onAttach(context)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return ComposeView(requireContext()).apply {
@@ -78,10 +85,20 @@ class FeedbackFragment : MvpAppCompatFragment(), FeedbackView {
     }
 
     @Composable
-    fun ContentComposable(sending: Boolean = false) {
-        var name by remember { mutableStateOf("") }
-        var email by remember { mutableStateOf("") }
-        var message by remember { mutableStateOf("") }
+    fun ContentComposable() {
+        var name by remember { mutableStateOf(TextFieldValue()) }
+        var email by remember { mutableStateOf(TextFieldValue()) }
+        var message by remember { mutableStateOf(TextFieldValue()) }
+
+        val viewModel: FeedbackViewModel by viewModels { factory }
+        val feedbackState by viewModel.feedbackState.collectAsState()
+
+        LaunchedEffect(feedbackState) {
+            when (feedbackState) {
+                FeedbackViewState.Sent -> showToast("Sent")
+                is FeedbackViewState.Error -> showToast((feedbackState as FeedbackViewState.Error).message)
+            }
+        }
 
         Column(
             modifier = Modifier
@@ -89,36 +106,26 @@ class FeedbackFragment : MvpAppCompatFragment(), FeedbackView {
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            TextField(
-                value = name,
-                onValueChange = { name = it },
-                label = { Text(text = stringResource(R.string.feedback_your_name)) },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth()
-            )
+
+            NameTextField(textState = name, onTextChanged = { name = it }, feedbackState)
+
             Spacer(Modifier.padding(bottom = 8.dp))
-            TextField(
-                value = email,
-                onValueChange = { email = it },
-                label = { Text(text = stringResource(R.string.feedback_your_email)) },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                modifier = Modifier.fillMaxWidth()
-            )
+
+            EmailTextField(textState = email, onTextChanged = { email = it }, feedbackState)
+
             Spacer(Modifier.padding(bottom = 8.dp))
-            TextField(
-                value = message,
-                onValueChange = { message = it },
-                label = { Text(text = stringResource(R.string.feedback_text)) },
-                maxLines = 4,
-                modifier = Modifier.fillMaxWidth()
-            )
+
+            ContentTextField(textState = message, onTextChanged = { message = it }, feedbackState)
+
             Spacer(Modifier.padding(bottom = 8.dp))
-            if (sending) {
+
+            if (feedbackState is FeedbackViewState.Loading) {
                 CircularProgressIndicator()
             } else {
                 Button(
-                    onClick = { sendFeedback(name, email, message) },
+                    onClick = {
+                        viewModel.onSendClicked(name.text, email.text, message.text)
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 16.dp)
@@ -129,44 +136,89 @@ class FeedbackFragment : MvpAppCompatFragment(), FeedbackView {
         }
     }
 
-    private fun sendFeedback(name: String, email: String, message: String) {
-        feedbackPresenter.sendFeedback(email, name, message)
+    @Composable
+    fun NameTextField(
+        textState: TextFieldValue,
+        onTextChanged: (TextFieldValue) -> Unit,
+        feedbackState: FeedbackViewState
+    ) {
+        TextField(
+            value = textState,
+            onValueChange = { onTextChanged(it) },
+            label = { Text(text = stringResource(R.string.feedback_your_name)) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            isError = feedbackState is FeedbackViewState.NameError
+        )
     }
 
-    override fun onError(message: String) {
-        showToast(message)
+    @Composable
+    fun EmailTextField(
+        textState: TextFieldValue,
+        onTextChanged: (TextFieldValue) -> Unit,
+        feedbackState: FeedbackViewState
+    ) {
+        TextField(
+            value = textState,
+            onValueChange = { onTextChanged(it) },
+            label = { Text(text = stringResource(R.string.feedback_your_email)) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+            isError = feedbackState is FeedbackViewState.EmailError
+        )
     }
 
-    override fun onFeedbackCreated() {
-        showToast(R.string.feedback_message_sent)
-        activity?.onBackPressed()
+    @Composable
+    fun ContentTextField(
+        textState: TextFieldValue,
+        onTextChanged: (TextFieldValue) -> Unit,
+        feedbackState: FeedbackViewState
+    ) {
+        TextField(
+            value = textState,
+            onValueChange = { onTextChanged(it) },
+            label = { Text(text = stringResource(R.string.feedback_text)) },
+            maxLines = 4,
+            modifier = Modifier.fillMaxWidth(),
+            isError = feedbackState is FeedbackViewState.ContentError
+        )
     }
 
-    override fun showNameError(message: String?) {
-//        nameInputLayout.error = message
-    }
-
-    override fun showEmailError(message: String?) {
-//        emailInputLayout.error = message
-    }
-
-    override fun showMessageError(message: String?) {
-//        messageInputLayout.error = message
-    }
-
-    override fun enableEmailEditText(isEnabled: Boolean) {
-//        emailEditText.isEnabled = isEnabled
-    }
-
-    override fun enableNameEditText(isEnabled: Boolean) {
-//        nameEditText.isEnabled = isEnabled
-    }
-
-    override fun setName(name: String) {
-//        nameEditText.setText(name)
-    }
-
-    override fun setEmail(email: String) {
-//        emailEditText.setText(email)
-    }
+//    override fun onError(message: String) {
+//        showToast(message)
+//    }
+//
+//    override fun onFeedbackCreated() {
+//        showToast(R.string.feedback_message_sent)
+//        activity?.onBackPressed()
+//    }
+//
+//    override fun showNameError(message: String?) {
+////        nameInputLayout.error = message
+//    }
+//
+//    override fun showEmailError(message: String?) {
+////        emailInputLayout.error = message
+//    }
+//
+//    override fun showMessageError(message: String?) {
+////        messageInputLayout.error = message
+//    }
+//
+//    override fun enableEmailEditText(isEnabled: Boolean) {
+////        emailEditText.isEnabled = isEnabled
+//    }
+//
+//    override fun enableNameEditText(isEnabled: Boolean) {
+////        nameEditText.isEnabled = isEnabled
+//    }
+//
+//    override fun setName(name: String) {
+////        nameEditText.setText(name)
+//    }
+//
+//    override fun setEmail(email: String) {
+////        emailEditText.setText(email)
+//    }
 }
