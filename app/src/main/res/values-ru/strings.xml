@@ -48,10 +48,6 @@
     <string name="cancel">Отмена</string>
     <string name="removing">Удаление</string>
     <string name="remove_selected_items">Удалить выбранные слова</string>
-    <string name="disable_ad">Отключить рекламу</string>
-    <string name="item_already_owned">Покупка уже совершена</string>
-    <string name="billing_service_unavailable_try_later">Платежный сервис Google в данный момент недоступен. Попробуйте позже</string>
-    <string name="purchase_disabling_ads_done">Поздравляем! Реклама успешно отключена</string>
 
     <string name="error_no_internet_connection">Проверьте интернет-соединение</string>
     <string name="error_default_exception">Произошла ошибка. Попробуйте позже</string>

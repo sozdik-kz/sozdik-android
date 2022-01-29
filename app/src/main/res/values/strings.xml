@@ -50,9 +50,6 @@
     <string name="pref_key_translation_course" translatable="false">pref_key_translation_course</string>
 
     <string name="word_has_no_sound">For this word is not scoring</string>
-    <string name="disable_ad">Disable ad</string>
-    <string name="item_already_owned">Item already owned</string>
-    <string name="billing_service_unavailable_try_later">Google billing service is unavailable now. Try later</string>
     <string name="rate_app">Rate on the Google Play</string>
     <string name="rate_app_summary">Please help us make the app better. Give us your feedback</string>
     <string name="about">About</string>
@@ -92,7 +89,6 @@
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>
     <string name="removing">Removing</string>
-    <string name="purchase_disabling_ads_done">Purchase for disabling ads done</string>
     <string name="press_back_again_to_exit">Please click BACK again to exit</string>
 
     <string name="settings_app_language">Interface language</string>

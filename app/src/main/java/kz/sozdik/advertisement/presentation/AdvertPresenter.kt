@@ -68,7 +68,7 @@ class AdvertPresenter @Inject constructor(
                     }
                     adProvider = try {
                         val adProviderKey =
-                            firebaseRemoteConfig?.getString(AD_PROVIDER_KEY).orEmpty().toUpperCase()
+                            firebaseRemoteConfig?.getString(AD_PROVIDER_KEY).orEmpty().uppercase()
                         AdProvider.valueOf(adProviderKey)
                     } catch (e: IllegalArgumentException) {
                         AdProvider.UNKNOWN

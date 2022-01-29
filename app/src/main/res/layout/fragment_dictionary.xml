@@ -43,14 +43,13 @@
                 android:layout_height="match_parent"
                 android:layout_above="@+id/pageIndicator" />
 
-            <com.viewpagerindicator.LinePageIndicator
+            <com.zhpan.indicator.IndicatorView
                 android:id="@+id/pageIndicator"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                app:fillColor="@color/colorAccent" />
+                android:layout_marginBottom="2dp" />
 
         </RelativeLayout>
 
@@ -60,10 +59,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="16dp"
-            android:drawableBottom="@drawable/ic_search_gray"
             android:gravity="center"
             android:text="@string/start_search_now"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:drawableBottomCompat="@drawable/ic_search_gray" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -98,6 +97,7 @@
         app:elevation="6dp"
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@id/kazCharsView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,10 +48,6 @@
     <string name="cancel">Joıý</string>
     <string name="remove_selected_items">Tańdalǵan sózderdi joıý</string>
     <string name="removing">Joıý</string>
-    <string name="disable_ad">Jarnamadan ajyratylý</string>
-    <string name="item_already_owned">Покупка уже совершена</string>
-    <string name="billing_service_unavailable_try_later">Платежный сервис Google в данный момент недоступен. Попробуйте позже</string>
-    <string name="purchase_disabling_ads_done">Quttyqtaımyz! Jarnamadan ajyratyldyńyz</string>
     <string name="font_size">Qarip ólshemi</string>
 
     <string name="error_no_internet_connection">Internet-baılanys joq</string>

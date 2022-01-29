@@ -1,12 +1,12 @@
 package kz.sozdik.history.presentation
 
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import kz.sozdik.R
 
-import kz.sozdik.databinding.ItemWordBinding
 import kz.sozdik.dictionary.domain.model.Word
 
 class WordsAdapter(
@@ -17,18 +17,16 @@ class WordsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemWordBinding.inflate(inflater, parent, false)
-        return WordViewHolder(binding.root)
+        return WordViewHolder(inflater.inflate(R.layout.item_word, parent, false))
     }
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val word = items[position]
-        holder.binding?.word = word
-        holder.binding?.executePendingBindings()
-        holder.binding?.root?.setOnClickListener {
+        holder.tvWord.text = word.phrase
+        holder.itemView.setOnClickListener {
             onItemClick.invoke(word)
         }
-        holder.binding?.root?.setOnLongClickListener {
+        holder.itemView.setOnLongClickListener {
             onItemLongClick.invoke(word)
             true
         }
@@ -37,11 +35,6 @@ class WordsAdapter(
     override fun getItemCount(): Int = items.size
 
     inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        internal var binding: ItemWordBinding? = null
-
-        init {
-            binding = DataBindingUtil.bind(itemView)
-        }
+        val tvWord: TextView = itemView.findViewById(R.id.tvWord)
     }
 }

@@ -11,8 +11,6 @@ import moxy.MvpAppCompatActivity
 
 abstract class BaseActivity : MvpAppCompatActivity(), OnLocaleChangedListener {
 
-    protected open val displayHomeAsUpEnabled: Boolean = false
-
     protected abstract val layoutId: Int
 
     private var toast: Toast? = null

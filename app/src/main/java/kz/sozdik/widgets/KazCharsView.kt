@@ -80,7 +80,7 @@ class KazCharsView(
 
         chars.forEach {
             TextView(context).apply {
-                text = (if (this@KazCharsView.isAllCaps) it.toUpperCase() else it).toString()
+                text = (if (this@KazCharsView.isAllCaps) it.uppercaseChar() else it).toString()
                 this.layoutParams = layoutParams
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize.toFloat())
                 setPadding(paddingPixel, paddingPixel, paddingPixel, paddingPixel)
@@ -89,7 +89,7 @@ class KazCharsView(
                 setBackgroundResource(R.drawable.btn_black)
                 setOnClickListener {
                     var char = (it as TextView).text[0]
-                    char = if (this@KazCharsView.isAllCaps) char.toUpperCase() else char.toLowerCase()
+                    char = if (this@KazCharsView.isAllCaps) char.uppercaseChar() else char.lowercaseChar()
                     kazCharsClickListener?.invoke(char)
                 }
                 addView(this)

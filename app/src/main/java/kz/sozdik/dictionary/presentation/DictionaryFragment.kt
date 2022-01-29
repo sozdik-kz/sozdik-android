@@ -489,7 +489,7 @@ class DictionaryFragment :
             override fun onPageScrollStateChanged(state: Int) {
             }
         })
-        pageIndicator.setViewPager(viewPager)
+        pageIndicator.setupWithViewPager(viewPager)
 
         searchButton.setOnClickListener { presenter.onFabClicked() }
         hintTextView.setOnClickListener { expandSearchView() }
@@ -553,7 +553,7 @@ class DictionaryFragment :
     }
 
     private fun onKazakhLetterClick(letter: Char) {
-        val lowerCaseLetter = letter.toLowerCase()
+        val lowerCaseLetter = letter.lowercaseChar()
         presenter.onKazakhLetterClick()
 
         etFindWord?.let { findWordEditText ->

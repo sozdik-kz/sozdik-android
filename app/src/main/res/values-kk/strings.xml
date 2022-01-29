@@ -48,10 +48,6 @@
     <string name="cancel">Жою</string>
     <string name="remove_selected_items">Таңдалған сөздерді жою</string>
     <string name="removing">Жою</string>
-    <string name="disable_ad">Жарнамадан ажыратылу</string>
-    <string name="item_already_owned">Покупка уже совершена</string>
-    <string name="billing_service_unavailable_try_later">Платежный сервис Google в данный момент недоступен. Попробуйте позже</string>
-    <string name="purchase_disabling_ads_done">Құттықтаймыз! Жарнамадан ажыратылдыңыз</string>
     <string name="font_size">Қаріп өлшемі</string>
 
     <string name="error_no_internet_connection">Интернет-байланыс жоқ</string>
