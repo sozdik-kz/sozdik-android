@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.facebook.AccessToken
 import com.facebook.GraphRequest
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.launch
 import kz.sozdik.R
 import kz.sozdik.base.BaseMvpPresenter
@@ -63,21 +63,23 @@ class LoginPresenter @Inject constructor(
     @Suppress("UnusedPrivateMember")
     fun loginWithFacebookUser(user: FirebaseUser) {
         val request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken()) { jsonObject, _ ->
-            var avatarUrl = ""
-            if (jsonObject.has(PICTURE_KEY)) {
-                avatarUrl = jsonObject
-                    .getJSONObject(PICTURE_KEY)
-                    .getJSONObject("data")
-                    .getString("url")
+            jsonObject?.let {
+                var avatarUrl = ""
+                if (jsonObject.has(PICTURE_KEY)) {
+                    avatarUrl = jsonObject
+                        .getJSONObject(PICTURE_KEY)
+                        .getJSONObject("data")
+                        .getString("url")
+                }
+                val builder = SocialAuthOutput.Builder()
+                    .socialNetworkId(jsonObject.getString(ID_KEY))
+                    .firstName(jsonObject.getString(FIRST_NAME_KEY))
+                    .lastName(jsonObject.getString(LAST_NAME_KEY))
+                    .email(jsonObject.optString(EMAIL_KEY))
+                    .avatarUrl(avatarUrl)
+                    .socialNetwork(SocialAuthOutput.FACEBOOK)
+                socialLogin(builder)
             }
-            val builder = SocialAuthOutput.Builder()
-                .socialNetworkId(jsonObject.getString(ID_KEY))
-                .firstName(jsonObject.getString(FIRST_NAME_KEY))
-                .lastName(jsonObject.getString(LAST_NAME_KEY))
-                .email(jsonObject.optString(EMAIL_KEY))
-                .avatarUrl(avatarUrl)
-                .socialNetwork(SocialAuthOutput.FACEBOOK)
-            socialLogin(builder)
         }
         val scopes = listOf(ID_KEY, FIRST_NAME_KEY, LAST_NAME_KEY, EMAIL_KEY, PICTURE_TYPE_KEY)
         val parameters = Bundle()
@@ -88,13 +90,15 @@ class LoginPresenter @Inject constructor(
 
     private fun socialLogin(builder: SocialAuthOutput.Builder) {
         viewState.showLoading(true)
-        builder.deviceToken(FirebaseInstanceId.getInstance().token)
-        launch {
-            try {
-                val result = loginInteractor.socialAuth(builder.build())
-                onLoginSuccess(result)
-            } catch (e: Throwable) {
-                onError(e)
+        FirebaseMessaging.getInstance().token.addOnSuccessListener { token ->
+            builder.deviceToken(token)
+            launch {
+                try {
+                    val result = loginInteractor.socialAuth(builder.build())
+                    onLoginSuccess(result)
+                } catch (e: Throwable) {
+                    onError(e)
+                }
             }
         }
     }
@@ -116,8 +120,7 @@ class LoginPresenter @Inject constructor(
         viewState.setPasswordError(null)
         viewState.showLoading(true)
 
-        // TODO: Get rid of deprecated 'token' invocation
-        val deviceToken = FirebaseInstanceId.getInstance().token.orEmpty()
+        val deviceToken = FirebaseMessaging.getInstance().token.result
 
         launch {
             try {

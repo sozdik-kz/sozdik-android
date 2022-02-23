@@ -1,5 +1,6 @@
 package kz.sozdik.di.modules
 
+import android.content.ClipboardManager
 import android.content.Context
 import android.preference.PreferenceManager
 import com.akexorcist.localizationactivity.core.LocalizationContext
@@ -11,11 +12,13 @@ import kz.sozdik.core.system.PrefsManager
 object ApplicationModule {
 
     @Provides
-    @JvmStatic
     fun provideApplicationContext(context: Context): LocalizationContext = LocalizationContext(context)
 
     @Provides
-    @JvmStatic
     fun provideSharedPreferences(context: Context): PrefsManager =
         PrefsManager(PreferenceManager.getDefaultSharedPreferences(context))
+
+    @Provides
+    fun provideClipboardManager(context: Context): ClipboardManager =
+        context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 }

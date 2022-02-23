@@ -31,7 +31,7 @@ data class Word(
     val hasAudio: Boolean = !audioHash.isNullOrEmpty()
 
     @IgnoredOnParcel
-    val translateAsText: String = Jsoup.parse(translation).text()
+    val translateAsText: String = Jsoup.parse(translation ?: "").text()
 
     @IgnoredOnParcel
     val similarPhrasesAsHtml: String
