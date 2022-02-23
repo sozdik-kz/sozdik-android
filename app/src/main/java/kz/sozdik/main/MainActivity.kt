@@ -42,8 +42,6 @@ class MainActivity : BaseActivity() {
     @Inject
     lateinit var profileInteractor: ProfileInteractor
 
-    override val layoutId = R.layout.activity_main
-
     private val component: MainActivityComponent by lazy {
         DaggerMainActivityComponent.builder()
             .appDependency(getAppDepsProvider())
@@ -53,6 +51,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
         component.inject(this)
 

@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewTreeObserver
 import androidx.core.os.bundleOf
 import androidx.core.util.containsKey
-import androidx.core.util.set
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
@@ -25,7 +24,7 @@ import kz.sozdik.main.KeyboardState.CLOSED
 import kz.sozdik.main.KeyboardState.OPEN
 import kz.sozdik.main.KeyboardState.UNKNOWN
 import kz.sozdik.profile.presentation.ProfileFragment
-import kz.sozdik.translation.presentation.TranslateFragment
+import kz.sozdik.translation.presentation.TranslationFragment
 import timber.log.Timber
 
 private const val ARG_SELECTED_FRAGMENT_ID = "ARG_SELECTED_FRAGMENT_ID"
@@ -96,7 +95,7 @@ class MainFragment :
                 R.id.nav_dictionary -> DictionaryFragment.create(wordToDisplay)
                 R.id.nav_history -> HistoryPagerFragment()
                 R.id.nav_favorites -> FavoritesPagerFragment()
-                R.id.nav_translate -> TranslateFragment()
+                R.id.nav_translate -> TranslationFragment()
                 R.id.nav_profile -> ProfileFragment()
                 else -> throw IllegalArgumentException("unknown item id")
             }

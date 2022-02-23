@@ -11,8 +11,6 @@ import moxy.MvpAppCompatActivity
 
 abstract class BaseActivity : MvpAppCompatActivity(), OnLocaleChangedListener {
 
-    protected abstract val layoutId: Int
-
     private var toast: Toast? = null
 
     private val localizationDelegate = LocalizationActivityDelegate(this)
@@ -21,7 +19,6 @@ abstract class BaseActivity : MvpAppCompatActivity(), OnLocaleChangedListener {
         localizationDelegate.addOnLocaleChangedListener(this)
         localizationDelegate.onCreate(savedInstanceState)
         super.onCreate(savedInstanceState)
-        setContentView(layoutId)
     }
 
     fun showToast(message: String) {

@@ -1,5 +1,6 @@
 package kz.sozdik.core.di
 
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.SharedPreferences
 import android.media.MediaPlayer
@@ -45,6 +46,7 @@ interface AppDependency :
     fun provideRetrofit(): Retrofit
     fun provideMediaPlayer(): MediaPlayer
     fun provideVibrator(): Vibrator
+    fun provideClipboardManager(): ClipboardManager
 }
 
 interface RegistrationDependency {
